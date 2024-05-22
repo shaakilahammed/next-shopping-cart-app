@@ -1,9 +1,12 @@
 import connectMongo from '@/dbConnect/connectMongo';
 import User from '@/models/User';
+import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import bcrypt from 'bcryptjs';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import FacebookProvider from 'next-auth/providers/facebook';
 import GoogleProvider from 'next-auth/providers/google';
+import clientPromise from './lib/mongoClientPromise';
 
 export const {
     handlers: { GET, POST },
@@ -14,6 +17,8 @@ export const {
     session: {
         strategy: 'jwt',
     },
+
+    adapter: MongoDBAdapter(clientPromise),
     providers: [
         CredentialsProvider({
             name: 'credentials',
@@ -40,6 +45,10 @@ export const {
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        }),
+        FacebookProvider({
+            clientId: process.env.FACEBOOK_CLIENT_ID,
+            clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
         }),
     ],
 });
