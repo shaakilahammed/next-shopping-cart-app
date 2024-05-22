@@ -18,7 +18,7 @@ const Header = () => {
                         alt="Logo"
                         className="min-w-32"
                         width={128}
-                        height={128}
+                        height={40}
                     />
                 </Link>
 

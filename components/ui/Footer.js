@@ -18,7 +18,7 @@ const Footer = () => {
                         alt="logo"
                         className="w-40"
                         width={160}
-                        height={160}
+                        height={50}
                     />
                     <div className="mr-2">
                         <p className="text-gray-500">

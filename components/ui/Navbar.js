@@ -2,6 +2,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
+import SignInOut from './SignInOut';
 const Navbar = () => {
     return (
         <nav className="bg-gray-800">
@@ -139,12 +140,7 @@ const Navbar = () => {
                             Contact us
                         </Link>
                     </div>
-                    <Link
-                        href="/login"
-                        className="text-gray-200 hover:text-white transition"
-                    >
-                        Login
-                    </Link>
+                    <SignInOut />
                 </div>
             </div>
         </nav>
