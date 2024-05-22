@@ -1,7 +1,13 @@
+import { auth } from '@/auth';
 import WishProductList from '@/components/product/WishProductList';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import { redirect } from 'next/navigation';
 
-const WishListPage = () => {
+const WishListPage = async () => {
+    const session = await auth();
+    if (!session) {
+        redirect('/login');
+    }
     return (
         <>
             <Breadcrumb>

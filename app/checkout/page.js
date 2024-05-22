@@ -1,8 +1,14 @@
+import { auth } from '@/auth';
 import CheckoutForm from '@/components/form/CheckoutForm';
 import OrderSummary from '@/components/order/OrderSummary';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import { redirect } from 'next/navigation';
 
-const CheckoutPage = () => {
+const CheckoutPage = async () => {
+    const session = await auth();
+    if (!session) {
+        redirect('/login');
+    }
     return (
         <>
             <Breadcrumb>

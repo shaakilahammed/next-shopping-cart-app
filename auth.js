@@ -17,7 +17,9 @@ export const {
     session: {
         strategy: 'jwt',
     },
-
+    pages: {
+        signIn: '/login',
+    },
     adapter: MongoDBAdapter(clientPromise),
     providers: [
         CredentialsProvider({

@@ -1,9 +1,15 @@
+import { auth } from '@/auth';
 import BillingAddress from '@/components/account/BillingAddress';
 import PersonalProfile from '@/components/account/PersonalProfile';
 import ShippingAddress from '@/components/account/ShippingAddress';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import { redirect } from 'next/navigation';
 
-const AccountPage = () => {
+const AccountPage = async () => {
+    const session = await auth();
+    if (!session) {
+        redirect('/login');
+    }
     return (
         <>
             <Breadcrumb>
