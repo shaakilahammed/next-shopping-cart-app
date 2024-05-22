@@ -4,7 +4,6 @@ import SignOut from './SignOut';
 
 const SignInOut = async () => {
     const session = await auth();
-    console.log(session);
     return session && session?.user ? (
         <div className="flex">
             <div className="text-gray-200">
