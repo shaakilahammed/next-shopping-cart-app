@@ -1,0 +1,50 @@
+[
+    {
+        "_id": {
+            "$oid": "664f11d46da3668c19436e46"
+        },
+        "name": "Bedroom",
+        "icon": "/assets/images/icons/bed.svg",
+        "image": "/assets/images/category/category-1.svg"
+    },
+    {
+        "_id": {
+            "$oid": "664f11d46da3668c19436e47"
+        },
+        "name": "Mattrass",
+        "icon": "/assets/images/icons/bed-2.svg",
+        "image": "/assets/images/category/category-2.svg"
+    },
+    {
+        "_id": {
+            "$oid": "664f11d46da3668c19436e48"
+        },
+        "name": "Outdoor",
+        "icon": "/assets/images/icons/office.svg",
+        "image": "/assets/images/category/category-3.svg"
+    },
+    {
+        "_id": {
+            "$oid": "664f11d46da3668c19436e49"
+        },
+        "name": "Sofa",
+        "icon": "/assets/images/icons/sofa.svg",
+        "image": "/assets/images/category/category-4.svg"
+    },
+    {
+        "_id": {
+            "$oid": "664f11d46da3668c19436e4a"
+        },
+        "name": "Living Room",
+        "icon": "/assets/images/icons/terrace.svg",
+        "image": "/assets/images/category/category-5.svg"
+    },
+    {
+        "_id": {
+            "$oid": "664f11d46da3668c19436e4b"
+        },
+        "name": "Kitchen",
+        "icon": "/assets/images/icons/restaurant.svg",
+        "image": "/assets/images/category/category-6.svg"
+    }
+]

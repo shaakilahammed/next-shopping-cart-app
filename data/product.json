@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Drawer Mobile File Cabinet",
+        "sku": "BE45VGRT",
+        "categoryId": {
+            "$oid": "664f11d46da3668c19436e4a"
+        },
+        "brandId": {
+            "$oid": "664f12f46da3668c1944a250"
+        },
+        "price": 55.5,
+        "discountPrice": 45.0,
+        "stock": 10,
+        "shortDescription": "Note: Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination. Please check compatibility before purchasing.",
+        "description": "Office Storage Solution Featuring with 3 fabric drawers, this file cabinet with shelves are designed to keep stationery, files and other home office supplies organized with ease. Proper size makes it a great option to fit under your desk or to have in small offices. \nMultifunctional & Stylish: With a wide wood top and open storage shelves, this office cabinet can also be used as a printer stand, providing plenty of room for extra paper or files, or as a living room storage cabinet.\n Ample Storage: Space Having 2 pencil drawers and 1 file drawer for A4 / letter size hanging file folders, the lateral filing cabinet can store large amounts of paperwork while taking up minimal space, and potentially increase productivity through reduced clutter and easy access.\n Easy to Move: Rolling on 4 wheels, including 2 lockable casters, this mobile file cabinet can fix or move around your home office freely. Unique fabric drawer design makes it only weigh 22 lbs. and light to move.\n Easy Assembly: Sturdy steel frame with wooden shelves and fabric drawer, provide strong support for storage while easy to assemble, spare time from putting together a lot of pieces.",
+        "images": [
+            "https://m.media-amazon.com/images/I/71Q-zCiXS+L._AC_SX679_.jpg",
+            "https://m.media-amazon.com/images/I/81YFqntkPrL._AC_SX679_.jpg",
+            "https://m.media-amazon.com/images/I/81NCKbR9HBL._AC_SX679_.jpg",
+            "https://m.media-amazon.com/images/I/91mjhF9d+-L._AC_SX679_.jpg",
+            "https://m.media-amazon.com/images/I/91rYfDPEMGL._AC_SX679_.jpg",
+            "https://m.media-amazon.com/images/I/916TzWja+YL._AC_SX679_.jpg"
+        ],
+        "sizes": ["S", "L"],
+        "colors": ["White", "Chocolate"]
+    }
+]
