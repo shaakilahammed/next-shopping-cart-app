@@ -15,8 +15,22 @@ const UserSchema = new mongoose.Schema(
             type: String,
         },
         image: {
+            default: null,
+            type: String,
+        },
+        phone: {
             required: false,
             type: String,
+        },
+        shippingAddress: {
+            default: null,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Address',
+        },
+        billingAddress: {
+            default: null,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Address',
         },
     },
     { timestamps: true }
