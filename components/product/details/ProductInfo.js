@@ -8,43 +8,53 @@ import { faBagShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
-const ProductInfo = () => {
+const ProductInfo = ({ product }) => {
     return (
         <div>
             <h2 className="text-3xl font-medium uppercase mb-2">
-                Italian L Shape Sofa
+                {product?.name}
             </h2>
-            <Ratings />
+            <Ratings productId={product?.id} />
             <div className="space-y-2 mt-4">
                 <p className="text-gray-800 font-semibold space-x-2">
                     <span>Availability: </span>
-                    <span className="text-green-600">In Stock</span>
+                    {product?.stock > 0 ? (
+                        <span className="text-green-600">In Stock</span>
+                    ) : (
+                        <span className="text-red-600">Out Of Stock</span>
+                    )}
                 </p>
                 <p className="space-x-2">
                     <span className="text-gray-800 font-semibold">Brand: </span>
-                    <span className="text-gray-600">Apex</span>
+                    <span className="text-gray-600">
+                        {product?.brandId?.name}
+                    </span>
                 </p>
                 <p className="space-x-2">
                     <span className="text-gray-800 font-semibold">
                         Category:{' '}
                     </span>
-                    <span className="text-gray-600">Sofa</span>
+                    <span className="text-gray-600">
+                        {product?.categoryId?.name}
+                    </span>
                 </p>
                 <p className="space-x-2">
                     <span className="text-gray-800 font-semibold">SKU: </span>
-                    <span className="text-gray-600">BE45VGRT</span>
+                    <span className="text-gray-600">{product?.sku}</span>
                 </p>
             </div>
             <div className="flex items-baseline mb-1 space-x-2 font-roboto mt-4">
-                <p className="text-xl text-primary font-semibold">$45.00</p>
-                <p className="text-base text-gray-400 line-through">$55.00</p>
+                <p className="text-xl text-primary font-semibold">
+                    ${product?.discountPrice}
+                </p>
+                <p className="text-base text-gray-400 line-through">
+                    ${product?.price}
+                </p>
             </div>
 
             <p className="mt-4 text-gray-600">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-                eius eum reprehenderit dolore vel mollitia optio consequatur hic
-                asperiores inventore suscipit, velit consequuntur, voluptate
-                doloremque iure necessitatibus adipisci magnam porro.
+                <span className="font-semibold">Note: </span>
+                {product?.note}
             </p>
 
             <div className="mt-4">
@@ -56,7 +66,7 @@ const ProductInfo = () => {
                         -
                     </div>
                     <div className="h-8 w-8 text-base flex items-center justify-center">
-                        4
+                        1
                     </div>
                     <div className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">
                         +

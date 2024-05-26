@@ -1,51 +1,35 @@
+'use client';
 import Image from 'next/image';
+import { useState } from 'react';
 
-const ImageGallery = () => {
+const ImageGallery = ({ images }) => {
+    const [selectedImage, setSelectedImage] = useState(images[0]);
     return (
         <div>
-            <Image
-                src="/assets/images/products/product1.jpg"
-                alt="product"
-                className="w-full"
-                width={600}
-                height={450}
-            />
+            <div className="h-[500px] flex items-center overflow-hidden">
+                <Image
+                    src={selectedImage}
+                    alt="product"
+                    className="w-full"
+                    width={600}
+                    height={450}
+                />
+            </div>
             <div className="grid grid-cols-5 gap-4 mt-4">
-                <Image
-                    src="/assets/images/products/product2.jpg"
-                    alt="product2"
-                    className="w-full cursor-pointer border border-primary"
-                    height={80}
-                    width={110}
-                />
-                <Image
-                    src="/assets/images/products/product3.jpg"
-                    alt="product2"
-                    className="w-full cursor-pointer border"
-                    height={80}
-                    width={110}
-                />
-                <Image
-                    src="/assets/images/products/product4.jpg"
-                    alt="product2"
-                    className="w-full cursor-pointer border"
-                    height={80}
-                    width={110}
-                />
-                <Image
-                    src="/assets/images/products/product5.jpg"
-                    alt="product2"
-                    className="w-full cursor-pointer border"
-                    height={80}
-                    width={110}
-                />
-                <Image
-                    src="/assets/images/products/product6.jpg"
-                    alt="product2"
-                    className="w-full cursor-pointer border"
-                    height={80}
-                    width={110}
-                />
+                {images?.length > 0 &&
+                    images.map((image, index) => (
+                        <Image
+                            key={index}
+                            src={image}
+                            onMouseOver={() => setSelectedImage(image)}
+                            alt="product image"
+                            className={`w-full cursor-pointer border h-[80px] object-cover ${
+                                selectedImage === image && 'border-primary'
+                            }`}
+                            height={80}
+                            width={110}
+                        />
+                    ))}
             </div>
         </div>
     );

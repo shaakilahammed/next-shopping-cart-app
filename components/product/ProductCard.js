@@ -4,14 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Ratings from '../ratings/Ratings';
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
     return (
-        <div className="bg-white shadow rounded overflow-hidden group">
+        <div className="bg-white shadow rounded overflow-hidden group flex flex-col justify-between">
             <div className="relative">
                 <Image
-                    src="/assets/images/products/product1.jpg"
-                    alt="product 1"
-                    className="w-full"
+                    src={product?.images[0]}
+                    alt={product?.name}
+                    className="w-full object-cover h-[250px]"
                     width={300}
                     height={200}
                 />
@@ -20,7 +20,7 @@ const ProductCard = () => {
             justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
                 >
                     <Link
-                        href="#"
+                        href={`/shop/${product?.id}`}
                         className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
                         title="view product"
                     >
@@ -36,16 +36,20 @@ const ProductCard = () => {
                 </div>
             </div>
             <div className="pt-4 pb-3 px-4">
-                <Link href="#">
+                <Link href={`/shop/${product?.id}`}>
                     <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                        Guyer Chair
+                        {product?.name}
                     </h4>
                 </Link>
                 <div className="flex items-baseline mb-1 space-x-2">
-                    <p className="text-xl text-primary font-semibold">$45.00</p>
-                    <p className="text-sm text-gray-400 line-through">$55.90</p>
+                    <p className="text-xl text-primary font-semibold">
+                        ${product?.discountPrice}
+                    </p>
+                    <p className="text-sm text-gray-400 line-through">
+                        ${product?.price}
+                    </p>
                 </div>
-                <Ratings />
+                <Ratings productId={product?.id} />
             </div>
             <Link
                 href="#"

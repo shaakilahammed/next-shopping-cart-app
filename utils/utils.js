@@ -19,3 +19,16 @@ export const getBaseUrl = () => {
         return 'https://next-shopping-cart-app.vercel.app';
     }
 };
+
+export const getAverageRating = (ratings = []) => {
+    if (ratings?.length === 0) {
+        return 0;
+    } else if (ratings?.length === 1) {
+        return ratings[0].rating;
+    } else {
+        return (
+            ratings?.reduce((avg, rating) => rating.rating + avg, 0) /
+            ratings?.length
+        );
+    }
+};

@@ -1,0 +1,42 @@
+[
+    {
+        "userId": {
+            "$oid": "664dda6dd3796188e0950474"
+        },
+        "productId": {
+            "$oid": "665225d68ea6f0a50a9e9df8"
+        },
+        "rating": 5,
+        "review": "Awesome"
+    },
+    {
+        "userId": {
+            "$oid": "664dda99d3796188e0950477"
+        },
+        "productId": {
+            "$oid": "665225d68ea6f0a50a9e9df8"
+        },
+        "rating": 4,
+        "review": "Good"
+    },
+    {
+        "userId": {
+            "$oid": "664ddbb8d3796188e095049f"
+        },
+        "productId": {
+            "$oid": "665225d68ea6f0a50a9e9df8"
+        },
+        "rating": 3,
+        "review": "Average"
+    },
+    {
+        "userId": {
+            "$oid": "664e322e38cec31f8dbe9914"
+        },
+        "productId": {
+            "$oid": "665225d68ea6f0a50a9e9df8"
+        },
+        "rating": 2,
+        "review": "Bad"
+    }
+]
