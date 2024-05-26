@@ -1,21 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Category = () => {
+const Category = ({ category }) => {
     return (
         <div className="relative rounded-sm overflow-hidden group">
             <Image
-                src="/assets/images/category/category-1.jpg"
-                alt="category 1"
+                src={category.image}
+                alt={category.name}
                 className="w-full"
                 height={250}
                 width={400}
             />
             <Link
-                href="#"
+                href={`/shop?categoryId=${category?.id}`}
                 className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
             >
-                Bedroom
+                {category?.name}
             </Link>
         </div>
     );

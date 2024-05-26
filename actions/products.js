@@ -18,6 +18,46 @@ export const getAllProducts = async () => {
     }
 };
 
+export const getRelatedProducts = async (productId) => {
+    try {
+        const response = await fetch(
+            `${getBaseUrl()}/api/products/${productId}/related`
+        );
+        const data = await response.json();
+        if (response.ok) {
+            return replaceMongoIdInArray(data?.data);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getTrendingProducts = async () => {
+    try {
+        const response = await fetch(`${getBaseUrl()}/api/products/trending`);
+        const data = await response.json();
+        if (response.ok) {
+            return replaceMongoIdInArray(data?.data);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getNewArrivalProducts = async () => {
+    try {
+        const response = await fetch(
+            `${getBaseUrl()}/api/products/new-arrival`
+        );
+        const data = await response.json();
+        if (response.ok) {
+            return replaceMongoIdInArray(data?.data);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export const getProductbyId = async (productId) => {
     try {
         const response = await fetch(
