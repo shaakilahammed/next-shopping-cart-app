@@ -1,7 +1,9 @@
+import { getAllProducts } from '@/actions/products';
 import ProductNotFound from '../ui/ProductNotFound';
 import ProductCard from './ProductCard';
 
-const ShopProductList = ({ products }) => {
+const ShopProductList = async ({ q, category }) => {
+    const products = await getAllProducts(q, category);
     return (
         <div className="col-span-3">
             {products.length > 0 ? (

@@ -1,0 +1,131 @@
+{
+    "header": {
+        "searchHere": "Search here",
+        "search": "Search",
+        "wishlist": "Wishlist",
+        "cart": "Cart",
+        "account": "Account"
+    },
+    "navbar": {
+        "home": "Home",
+        "shop": "Shop",
+        "aboutUs": "About us",
+        "contactUs": "Contact Us",
+        "welcome": "Welcome",
+        "login": "Login",
+        "logout": "Logout"
+    },
+    "banner": {
+        "title": "Best collection for home decoration",
+        "description": "Unleash the magic of interior design with our captivating home décor collection. Elevate your space with irresistible accents that redefine chic and elegance. Make every corner a statement of your unique style.",
+        "actionButton": "Shop Now"
+    },
+    "features": {
+        "freeShipping": {
+            "title": "Free Shipping",
+            "description": "Order over $200"
+        },
+        "moneyReturns": {
+            "title": "Money Returns",
+            "description": "30 days money returns"
+        },
+        "customerSupport": {
+            "title": "Customer support",
+            "description": "24/7 Support"
+        }
+    },
+    "sections": {
+        "shopByCategory": "Shop by category",
+        "topNewArrival": "Top new arrival",
+        "trendingProducts": "Trending Products",
+        "relatedProducts": "Related products"
+    },
+    "filter": {
+        "price": "Price",
+        "color": "Color",
+        "min": "min",
+        "max": "max"
+    },
+    "product": {
+        "addToCart": "Add to cart",
+        "addToWishlist": "Wishlist",
+        "noRatings": "No ratings yet"
+    },
+    "productDetails": {
+        "availaility": "Availability:",
+        "brand": "Brand:",
+        "category": "Category:",
+        "sku": "SKU:",
+        "note": "Note:",
+        "quantity": "Quantity",
+        "details": "Product details"
+    },
+    "login": {
+        "title": "Login",
+        "message": "Welcome back customer",
+        "email": "Email Address",
+        "password": "Password",
+        "remember": "Remember me",
+        "forgotPassword": "Forgot password"
+    },
+    "register": {
+        "title": "Create account",
+        "message": "Register for new cosutumer",
+        "fullName": "Full Name",
+        "email": "Email Address",
+        "password": "Password",
+        "confirmPassword": "Confirm password",
+        "aggrement": "I have read and agree to the ",
+        "termsConditions": "terms & conditions"
+    },
+    "socialLogin": {
+        "orLogin": "Or login with",
+        "orSignUp": "Or signup with",
+        "facebook": "Faceook",
+        "google": "Google",
+        "donotHaveAccount": "Don't have account?",
+        "haveAccount": "Already have account?",
+        "registerNow": "Register Now",
+        "loginNow": "Login now"
+    },
+    "account": {
+        "personalProfile": "Personal Profile",
+        "shippingAddress": "Shipping address",
+        "billingAddress": "Billing address",
+        "edit": "Edit"
+    },
+    "checkout": {
+        "checkout": "Checkout",
+        "fullName": "Full Name",
+        "phoneNumber": "Checkout",
+        "emailAddress": "Email Address",
+        "streetAddress": "Checkout",
+        "city": "City",
+        "country": "Checkout",
+        "orderSummary": "Order Summary",
+        "subtotal": "Subtotal",
+        "shipping": "Shipping",
+        "free": "Free",
+        "total": "Total",
+        "placeOrder": "Place order"
+    },
+    "footer": {
+        "tagline": "Best collection for home decoration",
+        "menus": {
+            "solutions": "Solutions",
+            "support": "Support"
+        },
+        "solutions": {
+            "marketing": "Marketing",
+            "Analitycs": "Analitycs",
+            "Commerce": "Commerce",
+            "Insights": "Insights"
+        },
+        "support": {
+            "pricing": "Pricing",
+            "guides": "Guides",
+            "apiStatus": "API Status"
+        },
+        "copyrignt": "LWSkart - All Right Reserved"
+    }
+}

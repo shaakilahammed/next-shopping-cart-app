@@ -1,0 +1,131 @@
+{
+    "header": {
+        "searchHere": "এখানে অনুসন্ধান করুন",
+        "search": "অনুসন্ধান",
+        "wishlist": "উইশলিস্ট",
+        "cart": "কার্ট",
+        "account": "অ্যাকাউন্ট"
+    },
+    "navbar": {
+        "home": "হোম",
+        "shop": "দোকান",
+        "aboutUs": "আমাদের সম্পর্কে",
+        "contactUs": "যোগাযোগ করুন",
+        "welcome": "স্বাগতম",
+        "login": "লগইন",
+        "logout": "লগআউট"
+    },
+    "banner": {
+        "title": "বাসার সাজের জন্য সেরা সংগ্রহ",
+        "description": "আমাদের মোহনীয় বাসা সাজের সংগ্রহের ম্যাজিক উন্মুক্ত করুন। অপরিহার্য আকর্ষণীয় এক্সেন্ট দিয়ে আপনার স্থানকে সজ্জিত করুন যা  শোভা পরিবর্তন করে। প্রতিটি কোণে আপনার অনন্য স্টাইলের এক বিবৃতি করুন।",
+        "actionButton": "এখনি কেনাকাটা করুন"
+    },
+    "features": {
+        "freeShipping": {
+            "title": "ফ্রি শিপিং",
+            "description": "$200 এর ওপর অর্ডার করুন"
+        },
+        "moneyReturns": {
+            "title": "মানি রিটার্ন",
+            "description": "30 দিনের মানি রিটার্ন"
+        },
+        "customerSupport": {
+            "title": "গ্রাহক সাপোর্ট",
+            "description": "24/7 সাপোর্ট"
+        }
+    },
+    "sections": {
+        "shopByCategory": "বিভাগের ভিত্তিতে কেনাকাটা",
+        "topNewArrival": "শীর্ষ নতুন আগমন",
+        "trendingProducts": "ট্রেন্ডিং পণ্য",
+        "relatedProducts": "সংশ্লিষ্ট পণ্য"
+    },
+    "filter": {
+        "price": "মূল্য",
+        "color": "রং",
+        "min": "ন্যূনতম",
+        "max": "সর্বোচ্চ"
+    },
+    "product": {
+        "addToCart": "কার্টে যোগ করুন",
+        "addToWishlist": "উইশলিস্ট",
+        "noRatings": "এখনও রেটিং নেই"
+    },
+    "productDetails": {
+        "availaility": "প্রাপ্ততা:",
+        "brand": "ব্র্যান্ড:",
+        "category": "বিভাগ:",
+        "sku": "স্কু:",
+        "note": "নোট:",
+        "quantity": "পরিমাণ",
+        "details": "পণ্যের বিবরণ"
+    },
+    "login": {
+        "title": "লগইন",
+        "message": "স্বাগতম গ্রাহক",
+        "email": "ইমেইল এড্রেস",
+        "password": "পাসওয়ার্ড",
+        "remember": "মনে রাখুন",
+        "forgotPassword": "পাসওয়ার্ড ভুলে গেছেন?"
+    },
+    "register": {
+        "title": "অ্যাকাউন্ট তৈরি করুন",
+        "message": "নতুন কাস্টমার হিসাবে নিবন্ধন করুন",
+        "fullName": "পুরো নাম",
+        "email": "ইমেইল এড্রেস",
+        "password": "পাসওয়ার্ড",
+        "confirmPassword": "পাসওয়ার্ড নিশ্চিত করুন",
+        "aggrement": "আমি পড়েছি এবং অবমাননা করি ",
+        "termsConditions": "শর্তাবলী"
+    },
+    "socialLogin": {
+        "orLogin": "অথবা লগইন করুন",
+        "orSignUp": "অথবা নিবন্ধন করুন",
+        "facebook": "ফেসবুক",
+        "google": "গুগল",
+        "donotHaveAccount": "একাউন্ট নেই?",
+        "haveAccount": "ইতিমধ্যে একাউন্ট আছে?",
+        "registerNow": "এখনি নিবন্ধন করুন",
+        "loginNow": "এখনি লগইন করুন"
+    },
+    "account": {
+        "personalProfile": "ব্যক্তিগত প্রোফাইল",
+        "shippingAddress": "শিপিং ঠিকানা",
+        "billingAddress": "বিলিং ঠিকানা",
+        "edit": "পরিবর্তন"
+    },
+    "checkout": {
+        "checkout": "চেকআউট",
+        "fullName": "পুরো নাম",
+        "phoneNumber": "ফোন নাম্বার",
+        "emailAddress": "ইমেল এড্রেস",
+        "streetAddress": "রাস্তা",
+        "city": "শহর",
+        "country": "দেশ",
+        "orderSummary": "অর্ডার সারাংশ",
+        "subtotal": "মোট",
+        "shipping": "শিপিং",
+        "free": "ফ্রি",
+        "total": "মোট",
+        "placeOrder": "অর্ডার প্রদান করুন"
+    },
+    "footer": {
+        "tagline": "বাসার সাজের জন্য সেরা সংগ্রহ",
+        "menus": {
+            "solutions": "সমাধান",
+            "support": "সমর্থন"
+        },
+        "solutions": {
+            "marketing": "মার্কেটিং",
+            "Analitycs": "বিশ্লেষণ",
+            "Commerce": "বাণিজ্য",
+            "Insights": "উপদেশ"
+        },
+        "support": {
+            "pricing": "মূল্য নির্ধারণ",
+            "guides": "গাইড",
+            "apiStatus": "API অবস্থা"
+        },
+        "copyrignt": "LWSkart - সমস্ত অধিকার সংরক্ষিত"
+    }
+}

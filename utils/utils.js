@@ -32,3 +32,11 @@ export const getAverageRating = (ratings = []) => {
         );
     }
 };
+
+export const refinedURI = (uri) => {
+    const decodedURI = decodeURI(uri);
+    if (decodedURI === 'undefined') {
+        return '';
+    }
+    return decodedURI;
+};

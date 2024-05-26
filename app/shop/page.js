@@ -1,11 +1,10 @@
-import { getAllProducts } from '@/actions/products';
 import Filter from '@/components/filter/Filter';
 import FilterDrawer from '@/components/filter/FilterDrawer';
 import ShopProductList from '@/components/product/ShopProductList';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import { refinedURI } from '@/utils/utils';
 
-const ShopPage = async () => {
-    const products = await getAllProducts();
+const ShopPage = ({ searchParams: { q, category } }) => {
     return (
         <>
             <Breadcrumb>
@@ -14,7 +13,10 @@ const ShopPage = async () => {
             <div className="container grid md:grid-cols-4 grid-cols-2 gap-6 pt-4 pb-16 items-start">
                 <FilterDrawer />
                 <Filter />
-                <ShopProductList products={products} />
+                <ShopProductList
+                    q={refinedURI(q)}
+                    category={refinedURI(category)}
+                />
             </div>
         </>
     );
