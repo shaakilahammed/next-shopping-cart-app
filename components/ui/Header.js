@@ -6,6 +6,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import Search from '../filter/Search';
 
 const Header = () => {
@@ -21,8 +22,9 @@ const Header = () => {
                         height={40}
                     />
                 </Link>
-
-                <Search />
+                <Suspense>
+                    <Search />
+                </Suspense>
 
                 <div className="flex items-center space-x-4">
                     <Link

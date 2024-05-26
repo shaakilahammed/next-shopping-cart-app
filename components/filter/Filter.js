@@ -1,4 +1,5 @@
 import { getAllCategories } from '@/actions/categories';
+import { Suspense } from 'react';
 import CategoryFilter from './CategoryFilter';
 
 const Filter = async () => {
@@ -7,7 +8,9 @@ const Filter = async () => {
     return (
         <div className="col-span-1 bg-white px-4 pb-6 shadow rounded overflow-hiddenb hidden md:block">
             <div className="divide-y divide-gray-200 space-y-5">
-                <CategoryFilter categories={categories} />
+                <Suspense>
+                    <CategoryFilter categories={categories} />
+                </Suspense>
 
                 <div className="pt-4">
                     <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">
