@@ -2,12 +2,12 @@ import { auth } from '@/auth';
 import Link from 'next/link';
 import SignOut from './SignOut';
 
-const SignInOut = async () => {
+const SignInOut = async ({ dict }) => {
     const session = await auth();
     return session && session?.user ? (
         <div className="flex">
             <div className="text-gray-200">
-                Welcome,{' '}
+                {dict.navbar.welcome},{' '}
                 <Link
                     href="/account"
                     className="text-gray-200 hover:text-white transition"
@@ -16,15 +16,14 @@ const SignInOut = async () => {
                 </Link>{' '}
                 |{' '}
             </div>
-
-            <SignOut />
+            <SignOut text={dict.navbar.logout} />
         </div>
     ) : (
         <Link
             href="/login"
             className="text-gray-200 hover:text-white transition"
         >
-            Login
+            {dict.navbar.login}
         </Link>
     );
 };

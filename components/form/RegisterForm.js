@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-const RegisterForm = () => {
+const RegisterForm = ({ texts }) => {
     const router = useRouter();
     const [pending, setPending] = useState(false);
     const [responseError, setResponseError] = useState('');
@@ -99,7 +99,7 @@ const RegisterForm = () => {
             <div className="space-y-2">
                 <div>
                     <label htmlFor="name" className="text-gray-600 mb-2 block">
-                        Full Name
+                        {texts.fullName}
                     </label>
                     <input
                         type="text"
@@ -116,7 +116,7 @@ const RegisterForm = () => {
                 </div>
                 <div>
                     <label htmlFor="email" className="text-gray-600 mb-2 block">
-                        Email address
+                        {texts.email}
                     </label>
                     <input
                         type="email"
@@ -136,7 +136,7 @@ const RegisterForm = () => {
                         htmlFor="password"
                         className="text-gray-600 mb-2 block"
                     >
-                        Password
+                        {texts.password}
                     </label>
                     <input
                         type="password"
@@ -156,7 +156,7 @@ const RegisterForm = () => {
                         htmlFor="confirm"
                         className="text-gray-600 mb-2 block"
                     >
-                        Confirm password
+                        {texts.confirmPassword}
                     </label>
                     <input
                         type="password"
@@ -186,9 +186,9 @@ const RegisterForm = () => {
                         htmlFor="aggrement"
                         className="text-gray-600 ml-3 cursor-pointer"
                     >
-                        I have read and agree to the{' '}
+                        {texts.aggrement}{' '}
                         <a href="#" className="text-primary">
-                            terms & conditions
+                            {texts.termsConditions}
                         </a>
                     </label>
                 </div>
@@ -202,7 +202,7 @@ const RegisterForm = () => {
                     type="submit"
                     className="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium disabled:cursor-not-allowed"
                 >
-                    {pending ? 'creating account' : 'create account'}
+                    {pending ? texts.loading : texts.title}
                 </button>
             </div>
         </form>

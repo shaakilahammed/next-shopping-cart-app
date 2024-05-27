@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Ratings from '../ratings/Ratings';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, cartText, noRatingsText }) => {
     return (
         <div className="bg-white shadow rounded overflow-hidden group flex flex-col justify-between">
             <div className="relative">
@@ -49,13 +49,16 @@ const ProductCard = ({ product }) => {
                         ${product?.price}
                     </p>
                 </div>
-                <Ratings productId={product?.id} />
+                <Ratings
+                    productId={product?.id}
+                    noRatingsText={noRatingsText}
+                />
             </div>
             <Link
                 href="#"
                 className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
             >
-                Add to cart
+                {cartText}
             </Link>
         </div>
     );

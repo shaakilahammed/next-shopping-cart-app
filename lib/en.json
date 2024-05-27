@@ -7,6 +7,7 @@
         "account": "Account"
     },
     "navbar": {
+        "categories": "Categories",
         "home": "Home",
         "shop": "Shop",
         "aboutUs": "About us",
@@ -16,7 +17,8 @@
         "logout": "Logout"
     },
     "banner": {
-        "title": "Best collection for home decoration",
+        "title1": "Best collection for",
+        "title2": "home decoration",
         "description": "Unleash the magic of interior design with our captivating home décor collection. Elevate your space with irresistible accents that redefine chic and elegance. Make every corner a statement of your unique style.",
         "actionButton": "Shop Now"
     },
@@ -41,6 +43,7 @@
         "relatedProducts": "Related products"
     },
     "filter": {
+        "categories": "Categories",
         "price": "Price",
         "color": "Color",
         "min": "min",
@@ -53,15 +56,22 @@
     },
     "productDetails": {
         "availaility": "Availability:",
+        "inStock": "In Stock",
+        "outOfStock": "Out Of Stock",
         "brand": "Brand:",
         "category": "Category:",
         "sku": "SKU:",
         "note": "Note:",
         "quantity": "Quantity",
-        "details": "Product details"
+        "details": "Product details",
+        "addToCart": "Add to cart",
+        "addToWishlist": "Wishlist",
+        "noRatings": "No ratings yet",
+        "share": "Share to "
     },
     "login": {
         "title": "Login",
+        "loading": "Logining",
         "message": "Welcome back customer",
         "email": "Email Address",
         "password": "Password",
@@ -70,6 +80,7 @@
     },
     "register": {
         "title": "Create account",
+        "loading": "Creating account",
         "message": "Register for new cosutumer",
         "fullName": "Full Name",
         "email": "Email Address",
@@ -83,8 +94,8 @@
         "orSignUp": "Or signup with",
         "facebook": "Faceook",
         "google": "Google",
-        "donotHaveAccount": "Don't have account?",
-        "haveAccount": "Already have account?",
+        "donotHaveAccount": "Don't have account? ",
+        "haveAccount": "Already have account? ",
         "registerNow": "Register Now",
         "loginNow": "Login now"
     },
@@ -107,6 +118,8 @@
         "shipping": "Shipping",
         "free": "Free",
         "total": "Total",
+        "aggrement": "I have read and agree to the ",
+        "termsConditions": "terms & conditions",
         "placeOrder": "Place order"
     },
     "footer": {

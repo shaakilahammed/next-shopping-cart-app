@@ -1,7 +1,3 @@
-import Copyright from '@/components/ui/Copyright';
-import Footer from '@/components/ui/Footer';
-import Header from '@/components/ui/Header';
-import Navbar from '@/components/ui/Navbar';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Inter } from 'next/font/google';
@@ -19,11 +15,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={inter.className}>
-                <Header />
-                <Navbar />
                 {children}
-                <Footer />
-                <Copyright />
                 <script
                     src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"
                     defer

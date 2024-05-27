@@ -1,14 +1,14 @@
 import Link from 'next/link';
 
-const PersonalProfile = () => {
+const PersonalProfile = ({ texts }) => {
     return (
         <div className="shadow rounded bg-white px-4 pt-6 pb-8">
             <div className="flex items-center justify-between mb-4">
                 <h3 className="font-medium text-gray-800 text-lg">
-                    Personal Profile
+                    {texts.personalProfile}
                 </h3>
                 <Link href="#" className="text-primary">
-                    Edit
+                    {texts.edit}
                 </Link>
             </div>
             <div className="space-y-1">

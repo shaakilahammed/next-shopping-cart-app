@@ -4,9 +4,11 @@ import ImageGallery from '@/components/product/details/ImageGallery';
 import ProductDetails from '@/components/product/details/ProductDetails';
 import ProductInfo from '@/components/product/details/ProductInfo';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import { getDictionary } from '@/lib/dictionaries';
 
-const ProductDetailsPage = async ({ params: { productId } }) => {
+const ProductDetailsPage = async ({ params: { productId, locale } }) => {
     const product = await getProductbyId(productId);
+    const dict = await getDictionary(locale);
     return (
         <>
             <Breadcrumb>
@@ -14,10 +16,13 @@ const ProductDetailsPage = async ({ params: { productId } }) => {
             </Breadcrumb>
             <div className="container grid grid-cols-2 gap-6">
                 <ImageGallery images={product?.images} />
-                <ProductInfo product={product} />
+                <ProductInfo product={product} texts={dict.productDetails} />
             </div>
-            <ProductDetails description={product?.description} />
-            <RelatedProductList productId={product?.id} />
+            <ProductDetails
+                description={product?.description}
+                text={dict.productDetails.details}
+            />
+            <RelatedProductList productId={product?.id} locale={locale} />
         </>
     );
 };

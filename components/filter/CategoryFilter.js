@@ -2,7 +2,7 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
-const CategoryFilter = ({ categories }) => {
+const CategoryFilter = ({ categories, title }) => {
     const [selectedCategories, setSelectedCategories] = useState([]);
     const searchParams = useSearchParams();
     const pathname = usePathname();
@@ -44,10 +44,10 @@ const CategoryFilter = ({ categories }) => {
     return (
         <div>
             <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">
-                Categories
+                {title}
             </h3>
             <div className="space-y-2">
-                {categories.length > 0 &&
+                {categories?.length > 0 &&
                     categories?.map((category) => (
                         <div key={category?.id} className="flex items-center">
                             <input

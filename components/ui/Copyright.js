@@ -1,12 +1,13 @@
+import { getDictionary } from '@/lib/dictionaries';
 import Image from 'next/image';
 
-const Copyright = () => {
+const Copyright = async ({ locale }) => {
+    const dict = await getDictionary(locale);
+
     return (
         <div className="bg-gray-800 py-4">
             <div className="container flex items-center justify-between">
-                <p className="text-white">
-                    &copy; TailCommerce - All Right Reserved
-                </p>
+                <p className="text-white">&copy; {dict.footer.copyrignt}</p>
                 <div>
                     <Image
                         src="/assets/images/methods.png"

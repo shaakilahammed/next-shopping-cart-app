@@ -9,8 +9,8 @@ const CategoryMenu = async () => {
             className="absolute left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible w-[600px]"
             style={{ width: '300px' }}
         >
-            {categories.length > 0 &&
-                categories.map((item) => (
+            {categories?.length > 0 &&
+                categories?.map((item) => (
                     <Link
                         key={item?.id}
                         href={`/shop?categoryId=${item?.id}`}

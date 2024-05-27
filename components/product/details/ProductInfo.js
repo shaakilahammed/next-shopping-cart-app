@@ -8,38 +8,42 @@ import { faBagShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
-const ProductInfo = ({ product }) => {
+const ProductInfo = ({ product, texts }) => {
     return (
         <div>
             <h2 className="text-3xl font-medium uppercase mb-2">
                 {product?.name}
             </h2>
-            <Ratings productId={product?.id} />
+            <Ratings productId={product?.id} noRatingsText={texts.noRatings} />
             <div className="space-y-2 mt-4">
                 <p className="text-gray-800 font-semibold space-x-2">
-                    <span>Availability: </span>
+                    <span>{texts.availaility} </span>
                     {product?.stock > 0 ? (
-                        <span className="text-green-600">In Stock</span>
+                        <span className="text-green-600">{texts.inStock}</span>
                     ) : (
-                        <span className="text-red-600">Out Of Stock</span>
+                        <span className="text-red-600">{texts.outOfStock}</span>
                     )}
                 </p>
                 <p className="space-x-2">
-                    <span className="text-gray-800 font-semibold">Brand: </span>
+                    <span className="text-gray-800 font-semibold">
+                        {texts.brand}{' '}
+                    </span>
                     <span className="text-gray-600">
                         {product?.brandId?.name}
                     </span>
                 </p>
                 <p className="space-x-2">
                     <span className="text-gray-800 font-semibold">
-                        Category:{' '}
+                        {texts.category}{' '}
                     </span>
                     <span className="text-gray-600">
                         {product?.categoryId?.name}
                     </span>
                 </p>
                 <p className="space-x-2">
-                    <span className="text-gray-800 font-semibold">SKU: </span>
+                    <span className="text-gray-800 font-semibold">
+                        {texts.sku}{' '}
+                    </span>
                     <span className="text-gray-600">{product?.sku}</span>
                 </p>
             </div>
@@ -53,13 +57,13 @@ const ProductInfo = ({ product }) => {
             </div>
 
             <p className="mt-4 text-gray-600">
-                <span className="font-semibold">Note: </span>
+                <span className="font-semibold">{texts.note} </span>
                 {product?.note}
             </p>
 
             <div className="mt-4">
                 <h3 className="text-sm text-gray-800 uppercase mb-1">
-                    Quantity
+                    {texts.quantity}
                 </h3>
                 <div className="flex border border-gray-300 text-gray-600 divide-x divide-gray-300 w-max">
                     <div className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">
@@ -79,13 +83,13 @@ const ProductInfo = ({ product }) => {
                     href="#"
                     className="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:bg-transparent hover:text-primary transition"
                 >
-                    <FontAwesomeIcon icon={faBagShopping} /> Add to cart
+                    <FontAwesomeIcon icon={faBagShopping} /> {texts.addToCart}
                 </Link>
                 <Link
                     href="#"
                     className="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:text-primary transition"
                 >
-                    <FontAwesomeIcon icon={faHeart} /> Wishlist
+                    <FontAwesomeIcon icon={faHeart} /> {texts.addToWishlist}
                 </Link>
             </div>
 

@@ -2,7 +2,7 @@
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 
-const SocialLogin = ({ fromLogin = true }) => {
+const SocialLogin = ({ fromLogin = true, texts }) => {
     const handleSocialLogin = async (provider) => {
         try {
             await signIn(provider, { callbackUrl: '/' });
@@ -14,7 +14,7 @@ const SocialLogin = ({ fromLogin = true }) => {
         <>
             <div className="mt-6 flex justify-center relative">
                 <div className="text-gray-600 uppercase px-3 bg-white z-10 relative">
-                    {fromLogin ? 'Or login with' : 'Or signup with'}
+                    {fromLogin ? texts.orLogin : texts.orSignUp}
                 </div>
                 <div className="absolute left-0 top-3 w-full border-b-2 border-gray-200"></div>
             </div>
@@ -23,27 +23,27 @@ const SocialLogin = ({ fromLogin = true }) => {
                     onClick={() => handleSocialLogin('facebook')}
                     className="w-1/2 py-2 text-center text-white bg-blue-800 rounded uppercase font-roboto font-medium text-sm hover:bg-blue-700"
                 >
-                    facebook
+                    {texts.facebook}
                 </button>
                 <button
                     onClick={() => handleSocialLogin('google')}
                     className="w-1/2 py-2 text-center text-white bg-red-600 rounded uppercase font-roboto font-medium text-sm hover:bg-red-500"
                 >
-                    google
+                    {texts.google}
                 </button>
             </div>
             {fromLogin ? (
                 <p className="mt-4 text-center text-gray-600">
-                    Don&apos;t have account?{' '}
+                    {texts.donotHaveAccount}{' '}
                     <Link href="/register" className="text-primary">
-                        Register now
+                        {texts.registerNow}
                     </Link>
                 </p>
             ) : (
                 <p className="mt-4 text-center text-gray-600">
-                    Already have account?{' '}
+                    {texts.haveAccount}{' '}
                     <Link href="/login" className="text-primary">
-                        Login now
+                        {texts.loginNow}
                     </Link>
                 </p>
             )}

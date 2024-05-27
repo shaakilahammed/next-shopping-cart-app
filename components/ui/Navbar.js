@@ -1,9 +1,12 @@
+import { getDictionary } from '@/lib/dictionaries';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import CategoryMenu from '../category/CategoryMenu';
 import SignInOut from './SignInOut';
-const Navbar = () => {
+const Navbar = async ({ locale }) => {
+    const dict = await getDictionary(locale);
+
     return (
         <nav className="bg-gray-800">
             <div className="container flex">
@@ -12,7 +15,7 @@ const Navbar = () => {
                         <FontAwesomeIcon icon={faBars} />
                     </span>
                     <span className="capitalize ml-2 text-white hidden">
-                        All Categories
+                        {dict.navbar.categories}
                     </span>
 
                     {/* <!-- dropdown --> */}
@@ -25,28 +28,28 @@ const Navbar = () => {
                             href="/"
                             className="text-gray-200 hover:text-white transition"
                         >
-                            Home
+                            {dict.navbar.home}
                         </Link>
                         <Link
                             href="/shop"
                             className="text-gray-200 hover:text-white transition"
                         >
-                            Shop
+                            {dict.navbar.shop}
                         </Link>
                         <Link
                             href="/about-us"
                             className="text-gray-200 hover:text-white transition"
                         >
-                            About us
+                            {dict.navbar.aboutUs}
                         </Link>
                         <Link
                             href="/contact-us"
                             className="text-gray-200 hover:text-white transition"
                         >
-                            Contact us
+                            {dict.navbar.contactUs}
                         </Link>
                     </div>
-                    <SignInOut />
+                    <SignInOut dict={dict} />
                 </div>
             </div>
         </nav>

@@ -4,7 +4,7 @@ import ShopProductList from '@/components/product/ShopProductList';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { refinedURI } from '@/utils/utils';
 
-const ShopPage = ({ searchParams: { q, category } }) => {
+const ShopPage = ({ params: { locale }, searchParams: { q, category } }) => {
     return (
         <>
             <Breadcrumb>
@@ -12,10 +12,11 @@ const ShopPage = ({ searchParams: { q, category } }) => {
             </Breadcrumb>
             <div className="container grid md:grid-cols-4 grid-cols-2 gap-6 pt-4 pb-16 items-start">
                 <FilterDrawer />
-                <Filter />
+                <Filter locale={locale} />
                 <ShopProductList
                     q={refinedURI(q)}
                     category={refinedURI(category)}
+                    locale={locale}
                 />
             </div>
         </>

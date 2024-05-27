@@ -2,10 +2,12 @@ import { auth } from '@/auth';
 import CheckoutForm from '@/components/form/CheckoutForm';
 import OrderSummary from '@/components/order/OrderSummary';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import { getDictionary } from '@/lib/dictionaries';
 import { redirect } from 'next/navigation';
 
-const CheckoutPage = async () => {
+const CheckoutPage = async ({ params: { locale } }) => {
     const session = await auth();
+    const dict = await getDictionary(locale);
     if (!session) {
         redirect('/login');
     }
@@ -17,11 +19,11 @@ const CheckoutPage = async () => {
             <div className="container grid grid-cols-12 items-start pb-16 pt-4 gap-6">
                 <div className="col-span-8 border border-gray-200 p-4 rounded">
                     <h3 className="text-lg font-medium capitalize mb-4">
-                        Checkout
+                        {dict.checkout.checkout}
                     </h3>
-                    <CheckoutForm />
+                    <CheckoutForm texts={dict.checkout} />
                 </div>
-                <OrderSummary />
+                <OrderSummary texts={dict.checkout} />
             </div>
         </>
     );

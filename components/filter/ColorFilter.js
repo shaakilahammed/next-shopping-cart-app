@@ -1,8 +1,8 @@
-const ColorFilter = () => {
+const ColorFilter = ({ title }) => {
     return (
         <div className="pt-4">
             <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">
-                size
+                {title}
             </h3>
             <div className="flex items-center gap-2">
                 <div className="size-selector">

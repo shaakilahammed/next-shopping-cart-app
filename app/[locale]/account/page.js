@@ -3,9 +3,11 @@ import BillingAddress from '@/components/account/BillingAddress';
 import PersonalProfile from '@/components/account/PersonalProfile';
 import ShippingAddress from '@/components/account/ShippingAddress';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import { getDictionary } from '@/lib/dictionaries';
 import { redirect } from 'next/navigation';
 
-const AccountPage = async () => {
+const AccountPage = async ({ params: { locale } }) => {
+    const dict = await getDictionary(locale);
     const session = await auth();
     if (!session) {
         redirect('/login');
@@ -17,11 +19,11 @@ const AccountPage = async () => {
             </Breadcrumb>
             <div className="container  items-start gap-6 pt-4 pb-16">
                 <div className=" grid grid-cols-3 gap-4 mx-auto max-w-5xl">
-                    <PersonalProfile />
+                    <PersonalProfile texts={dict.account} />
 
-                    <ShippingAddress />
+                    <ShippingAddress texts={dict.account} />
 
-                    <BillingAddress />
+                    <BillingAddress texts={dict.account} />
                 </div>
             </div>
         </>

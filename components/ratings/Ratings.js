@@ -3,7 +3,7 @@ import { getAverageRating } from '@/utils/utils';
 import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Ratings = async ({ productId }) => {
+const Ratings = async ({ productId, noRatingsText }) => {
     const ratings = await getRatingsyProductId(productId);
     const averageRating = getAverageRating(ratings);
     const fullRating = Math.floor(averageRating);
@@ -11,7 +11,7 @@ const Ratings = async ({ productId }) => {
         <div className="flex items-center">
             <div className="flex gap-1 text-sm text-yellow-400 items-center">
                 {averageRating === 0 ? (
-                    <span>No ratings yet</span>
+                    <span>{noRatingsText}</span>
                 ) : (
                     Array(fullRating)
                         .fill(null)

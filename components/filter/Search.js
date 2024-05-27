@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
-const Search = () => {
+const Search = ({ dict }) => {
     const [query, setQuery] = useState('');
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -47,10 +47,10 @@ const Search = () => {
                     onChange={(e) => setQuery(e.target.value)}
                     value={query}
                     className="w-full border border-primary border-r-0 pl-12 py-3 pr-3 rounded-l-md focus:outline-none hidden md:flex"
-                    placeholder="search"
+                    placeholder={dict.header.searchHere}
                 />
                 <button className="bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary transition hidden md:flex md:items-center">
-                    Search
+                    {dict.header.search}
                 </button>
             </form>
         </div>

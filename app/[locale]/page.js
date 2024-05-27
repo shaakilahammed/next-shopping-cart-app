@@ -5,15 +5,15 @@ import NewProductList from '@/components/product/NewProductList';
 import TrendingProductList from '@/components/product/TrendingProductList';
 import Banner from '@/components/ui/Banner';
 
-export default function Home() {
+export default function Home({ params: { locale } }) {
     return (
         <>
-            <Banner />
-            <FeatureList />
-            <CategoryList />
-            <NewProductList />
+            <Banner locale={locale} />
+            <FeatureList locale={locale} />
+            <CategoryList locale={locale} />
+            <NewProductList locale={locale} />
             <ExclusiveOffer imageUrl="/assets/images/offer.jpg" link="#" />
-            <TrendingProductList />
+            <TrendingProductList locale={locale} />
         </>
     );
 }

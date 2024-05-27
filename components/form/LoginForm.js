@@ -2,7 +2,7 @@
 import { login } from '@/actions/auth';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-const LoginForm = () => {
+const LoginForm = ({ texts }) => {
     const router = useRouter();
     const [pending, setPending] = useState(false);
     const [responseError, setResponseError] = useState('');
@@ -29,7 +29,7 @@ const LoginForm = () => {
         if (!input.password) {
             errors.password = 'Password is required';
             hasError = true;
-        } else if (input.password.length < 6) {
+        } else if (input.password?.length < 6) {
             errors.password = 'Password must be at least 6 characters';
             hasError = true;
         }
@@ -66,7 +66,7 @@ const LoginForm = () => {
             <div className="space-y-2">
                 <div>
                     <label htmlFor="email" className="text-gray-600 mb-2 block">
-                        Email address
+                        {texts.email}
                     </label>
                     <input
                         type="email"
@@ -86,7 +86,7 @@ const LoginForm = () => {
                         htmlFor="password"
                         className="text-gray-600 mb-2 block"
                     >
-                        Password
+                        {texts.password}
                     </label>
                     <input
                         type="password"
@@ -114,11 +114,11 @@ const LoginForm = () => {
                         htmlFor="remember"
                         className="text-gray-600 ml-3 cursor-pointer"
                     >
-                        Remember me
+                        {texts.remember}
                     </label>
                 </div>
                 <a href="#" className="text-primary">
-                    Forgot password
+                    {texts.forgotPassword}
                 </a>
             </div>
             <div className="mt-4">
@@ -127,7 +127,7 @@ const LoginForm = () => {
                     disabled={pending}
                     className="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium disabled:cursor-not-allowed"
                 >
-                    {pending ? 'Logining' : 'Login'}
+                    {pending ? texts.loading : texts.title}
                 </button>
             </div>
         </form>
