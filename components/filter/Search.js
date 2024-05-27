@@ -23,7 +23,7 @@ const Search = () => {
         if (pathname.includes('shop')) {
             router.replace(`${pathname}?${params.toString()}`);
         } else {
-            router.replace(`${pathname}shop?${params.toString()}`);
+            router.replace(`/shop?${params.toString()}`);
         }
     };
 
