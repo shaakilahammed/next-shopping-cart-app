@@ -1,4 +1,5 @@
 import { getAllCategories } from '@/actions/categories';
+import { getAllColors } from '@/actions/colors';
 import { getDictionary } from '@/lib/dictionaries';
 import { Suspense } from 'react';
 import CategoryFilter from './CategoryFilter';
@@ -7,6 +8,7 @@ import PriceFilter from './PriceFilter';
 
 const Filter = async ({ locale }) => {
     const categories = await getAllCategories();
+    const colors = await getAllColors();
     const dict = await getDictionary(locale);
 
     return (
@@ -27,7 +29,7 @@ const Filter = async ({ locale }) => {
                     />
                 </Suspense>
                 <Suspense>
-                    <ColorFilter title={dict.filter.color} />
+                    <ColorFilter title={dict.filter.color} colors={colors} />
                 </Suspense>
             </div>
         </div>

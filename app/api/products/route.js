@@ -1,6 +1,7 @@
 import connectMongo from '@/dbConnect/connectMongo';
 import Product from '@/models/Product';
 import { refinedURI } from '@/utils/utils';
+import mongoose from 'mongoose';
 import { NextResponse } from 'next/server';
 
 export const GET = async (request) => {
@@ -9,34 +10,42 @@ export const GET = async (request) => {
     const regex = new RegExp(query, 'i');
 
     const categories = refinedURI(params.get('category') || '');
-    try {
-        await connectMongo();
+    const colorId = refinedURI(params.get('color') || '');
+    // try {
+    await connectMongo();
 
-        const productQuery = { name: { $regex: regex } };
-        if (categories) {
-            const categoriesToMatch = categories.split('|');
-            productQuery.categoryId = { $in: categoriesToMatch };
-        }
-        console.log(productQuery);
+    const productQuery = { name: { $regex: regex } };
+    if (categories) {
+        const categoriesToMatch = categories.split('|');
+        productQuery.categoryId = { $in: categoriesToMatch };
+    }
 
-        const products = await Product.find(productQuery)
-            .select('_id name price discountPrice stock images')
-            .lean();
-        if (products) {
-            return NextResponse.json({
-                success: true,
-                data: products,
-            });
-        } else {
-            return NextResponse.json(
-                { success: false, data: null },
-                { status: 404 }
-            );
-        }
-    } catch (error) {
+    // if (colorId && colorId.trim() !== '') {
+    //     productQuery.colors = { $in: [new mongoose.Types.ObjectId(colorId)] };
+    // }
+    if (colorId && colorId.trim() !== '') {
+        productQuery.colors = new mongoose.Types.ObjectId(colorId);
+    }
+    // console.log(mongoose.Types.ObjectId(colorId));
+
+    const products = await Product.find(productQuery)
+        .select('_id name price discountPrice stock images')
+        .lean();
+    if (products) {
+        return NextResponse.json({
+            success: true,
+            data: products,
+        });
+    } else {
         return NextResponse.json(
             { success: false, data: null },
-            { status: 400 }
+            { status: 404 }
         );
     }
+    // } catch (error) {
+    //     return NextResponse.json(
+    //         { success: false, data: null },
+    //         { status: 400 }
+    //     );
+    // }
 };

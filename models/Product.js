@@ -48,10 +48,12 @@ const ProductSchema = new mongoose.Schema(
             type: [String],
             default: null,
         },
-        colors: {
-            type: [String],
-            default: null,
-        },
+        colors: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Color',
+            },
+        ],
     },
     { timestamps: true }
 );

@@ -21,13 +21,16 @@
             "https://m.media-amazon.com/images/I/717taGynruL._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown", "Black"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621945800,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a256"
             }
-        }
+        ],
+        "createdAt": "2024-05-01T04:12:22.005+00:00",
+        "updatedAt": "2024-05-01T04:12:22.005+00:00"
     },
     {
         "name": "Table with Charging Station",
@@ -51,13 +54,20 @@
             "https://m.media-amazon.com/images/I/71TBWI55pnL._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown", "Black", "White"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621946390,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a256"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a257"
             }
-        }
+        ],
+
+        "createdAt": "2024-05-01T10:15:22.005+00:00",
+        "updatedAt": "2024-05-01T10:15:22.005+00:00"
     },
     {
         "name": "High Back Mesh Office Chair with Retractable Footrest",
@@ -81,13 +91,13 @@
             "https://m.media-amazon.com/images/I/91u+cljuElL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["Black"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621947065,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a256"
             }
-        }
+        ],
+        "createdAt": "2024-05-02T14:28:47.005+00:00",
+        "updatedAt": "2024-05-02T14:28:47.005+00:00"
     },
 
     {
@@ -112,13 +122,14 @@
             "https://m.media-amazon.com/images/I/91TEDHmRHDL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621947752,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
             }
-        }
+        ],
+
+        "createdAt": "2024-05-03T09:42:33.005+00:00",
+        "updatedAt": "2024-05-03T09:42:33.005+00:00"
     },
     {
         "name": "Bakers Rack with Power Outlet, Microwave Stand, Coffee Bar",
@@ -142,13 +153,16 @@
             "https://m.media-amazon.com/images/I/71U0gT-JjaL._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["Black", "Brown"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621948337,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a256"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a255"
             }
-        }
+        ],
+        "createdAt": "2024-05-04T16:50:18.005+00:00",
+        "updatedAt": "2024-05-04T16:50:18.005+00:00"
     },
     {
         "name": "Drawer Mobile File Cabinet",
@@ -172,13 +186,13 @@
             "https://m.media-amazon.com/images/I/91rYfDPEMGL._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621963860,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
             }
-        }
+        ],
+        "createdAt": "2024-05-05T11:55:49.005+00:00",
+        "updatedAt": "2024-05-05T11:55:49.005+00:00"
     },
     {
         "name": "Drawer Dresser, Fabric Storage Tower",
@@ -202,13 +216,16 @@
             "https://m.media-amazon.com/images/I/815JCmQIJEL._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown", "Pink"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621964509,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a259"
             }
-        }
+        ],
+        "createdAt": "2024-05-06T08:03:27.005+00:00",
+        "updatedAt": "2024-05-06T08:03:27.005+00:00"
     },
     {
         "name": "Coffee Bar, Baker’s Rack for Kitchen",
@@ -232,13 +249,16 @@
             "https://m.media-amazon.com/images/I/716waQXSHUL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown", "Black"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621965140,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a256"
             }
-        }
+        ],
+        "createdAt": "2024-05-07T13:20:01.005+00:00",
+        "updatedAt": "2024-05-07T13:20:01.005+00:00"
     },
     {
         "name": "Furnulem Nightstand with 3 Drawers and 2-Tier Shelf",
@@ -262,13 +282,19 @@
             "https://m.media-amazon.com/images/I/71UmEOZcL2L._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown", "White", "Black"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621965730,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a257"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a256"
             }
-        }
+        ],
+        "createdAt": "2024-05-08T10:37:44.005+00:00",
+        "updatedAt": "2024-05-08T10:37:44.005+00:00"
     },
     {
         "name": "Double Dresser for Bedroom",
@@ -292,13 +318,19 @@
             "https://m.media-amazon.com/images/I/31BQH9UZbDL.jpg"
         ],
         "sizes": null,
-        "colors": ["Black", "White", "Brown"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621966340,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a256"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a257"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a255"
             }
-        }
+        ],
+        "createdAt": "2024-05-09T15:45:39.005+00:00",
+        "updatedAt": "2024-05-09T15:45:39.005+00:00"
     },
     {
         "name": "YITAHOME Dresser with 6 Drawers",
@@ -322,13 +354,16 @@
             "https://m.media-amazon.com/images/I/71J1fpcrqNL._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["Black", "White"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621966930,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a256"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a257"
             }
-        }
+        ],
+        "createdAt": "2024-05-10T12:51:17.005+00:00",
+        "updatedAt": "2024-05-10T12:51:17.005+00:00"
     },
 
     {
@@ -353,13 +388,13 @@
             "https://m.media-amazon.com/images/I/71r2Rk3oNsL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["White"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621967500,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a257"
             }
-        }
+        ],
+        "createdAt": "2024-05-11T08:06:11.005+00:00",
+        "updatedAt": "2024-05-11T08:06:11.005+00:00"
     },
 
     {
@@ -384,13 +419,13 @@
             "https://m.media-amazon.com/images/I/517iIpUjLOL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["Black"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621968100,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a256"
             }
-        }
+        ],
+        "createdAt": "2024-05-12T09:29:25.005+00:00",
+        "updatedAt": "2024-05-12T09:29:25.005+00:00"
     },
 
     {
@@ -415,13 +450,13 @@
             "https://m.media-amazon.com/images/I/71HRBIRCCCL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621968730,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
             }
-        }
+        ],
+        "createdAt": "2024-05-13T14:35:53.005+00:00",
+        "updatedAt": "2024-05-13T14:35:53.005+00:00"
     },
     {
         "name": "Pamapic 5 Piece Patio Dining Set",
@@ -445,13 +480,13 @@
             "https://m.media-amazon.com/images/I/81bzzqtkuwL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621969320,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
             }
-        }
+        ],
+        "createdAt": "2024-05-14T11:42:37.005+00:00",
+        "updatedAt": "2024-05-14T11:42:37.005+00:00"
     },
 
     {
@@ -476,13 +511,16 @@
             "https://m.media-amazon.com/images/I/819-7qaDQxL._SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["White", "Black"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621969920,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a257"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a256"
             }
-        }
+        ],
+        "createdAt": "2024-05-15T16:50:09.005+00:00",
+        "updatedAt": "2024-05-15T16:50:09.005+00:00"
     },
 
     {
@@ -507,13 +545,13 @@
             "https://m.media-amazon.com/images/I/71pxf1zehXL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["Black"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621970510,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a256"
             }
-        }
+        ],
+        "createdAt": "2024-05-16T12:05:19.005+00:00",
+        "updatedAt": "2024-05-16T12:05:19.005+00:00"
     },
     {
         "name": "Futon Sofa Bed, Faux Leather Sofa Couch",
@@ -537,13 +575,16 @@
             "https://m.media-amazon.com/images/I/71VgFMaVJQL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown", "Black"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621971130,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a256"
             }
-        }
+        ],
+        "createdAt": "2024-05-17T09:11:41.005+00:00",
+        "updatedAt": "2024-05-17T09:11:41.005+00:00"
     },
     {
         "name": "Sectional Comfy Cloud Living Room",
@@ -567,13 +608,13 @@
             "https://m.media-amazon.com/images/I/91aSWqnnLoL._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["White"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621971720,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a257"
             }
-        }
+        ],
+        "createdAt": "2024-05-18T14:28:33.005+00:00",
+        "updatedAt": "2024-05-18T14:28:33.005+00:00"
     },
     {
         "name": "Greesum 3 Pieces Patio Furniture Set",
@@ -597,13 +638,13 @@
             "https://m.media-amazon.com/images/I/81GEU4ww5RL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["Black"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621972320,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a256"
             }
-        }
+        ],
+        "createdAt": "2024-05-19T11:34:02.005+00:00",
+        "updatedAt": "2024-05-19T11:34:02.005+00:00"
     },
     {
         "name": "Novilla Queen Size Mattress",
@@ -627,13 +668,16 @@
             "https://m.media-amazon.com/images/I/810n+csIi2L._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["White", "Green"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621972920,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a257"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a258"
             }
-        }
+        ],
+        "createdAt": "2024-05-20T16:41:57.005+00:00",
+        "updatedAt": "2024-05-20T16:41:57.005+00:00"
     },
     {
         "name": "NeuType Futon Mattress Thicken Sleeping Mattress",
@@ -657,13 +701,16 @@
             "https://m.media-amazon.com/images/I/81Ut0dLy6GL._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["Black", "White"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621973520,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a256"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a257"
             }
-        }
+        ],
+        "createdAt": "2024-05-21T13:49:41.005+00:00",
+        "updatedAt": "2024-05-21T13:49:41.005+00:00"
     },
     {
         "name": "Sweetnight Portable Tri Folding Mattress Foldable",
@@ -687,13 +734,13 @@
             "https://m.media-amazon.com/images/I/71Mnbt+vzvL._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["Black"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621974120,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a256"
             }
-        }
+        ],
+        "createdAt": "2024-05-22T08:55:12.005+00:00",
+        "updatedAt": "2024-05-22T08:55:12.005+00:00"
     },
     {
         "name": "Goplus 4-Piece Rattan Patio Set",
@@ -717,13 +764,16 @@
             "https://m.media-amazon.com/images/I/81XpW7HpLyL._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["Black", "Brown"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621974720,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a256"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a255"
             }
-        }
+        ],
+        "createdAt": "2024-05-23T14:03:09.005+00:00",
+        "updatedAt": "2024-05-23T14:03:09.005+00:00"
     },
     {
         "name": "Shintenchi 47 Inch Black Wood Loveseat Sofa",
@@ -747,13 +797,19 @@
             "https://m.media-amazon.com/images/I/81eaMAio79L._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["Pink", "Black", "Brown"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621975320,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a259"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a256"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a255"
             }
-        }
+        ],
+        "createdAt": "2024-05-24T11:08:53.005+00:00",
+        "updatedAt": "2024-05-24T11:08:53.005+00:00"
     },
     {
         "name": "Living Room Piece Sets, Modern Upholstered Couch Furniture",
@@ -777,13 +833,13 @@
             "https://m.media-amazon.com/images/I/61ydInvVJwL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["White"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621975920,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a257"
             }
-        }
+        ],
+        "createdAt": "2024-05-25T16:16:25.005+00:00",
+        "updatedAt": "2024-05-25T16:16:25.005+00:00"
     },
 
     {
@@ -808,13 +864,16 @@
             "https://m.media-amazon.com/images/I/91oUqhQ6dbL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown", "Black"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621976520,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a256"
             }
-        }
+        ],
+        "createdAt": "2024-05-26T12:21:36.005+00:00",
+        "updatedAt": "2024-05-26T12:21:36.005+00:00"
     },
     {
         "name": "Small Round Side End Table, Modern Nightstand",
@@ -838,13 +897,22 @@
             "https://m.media-amazon.com/images/I/61I-QPnUbGL._AC_SX679_.jpg"
         ],
         "sizes": null,
-        "colors": ["White", "Black", "Pink", "Green"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621977120,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a257"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a256"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a259"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a258"
             }
-        }
+        ],
+        "createdAt": "2024-05-27T09:29:18.005+00:00",
+        "updatedAt": "2024-05-27T09:29:18.005+00:00"
     },
     {
         "name": "TV Stand for 55 60 inch TV",
@@ -868,13 +936,16 @@
             "https://m.media-amazon.com/images/I/71d56nHIBQL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown", "Black"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621977720,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a256"
             }
-        }
+        ],
+        "createdAt": "2024-05-28T08:06:11.005+00:00",
+        "updatedAt": "2024-05-28T08:06:11.005+00:00"
     },
 
     {
@@ -899,13 +970,13 @@
             "https://m.media-amazon.com/images/I/71hUa6WOonL._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["White"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621978320,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a257"
             }
-        }
+        ],
+        "createdAt": "2024-05-29T08:06:11.005+00:00",
+        "updatedAt": "2024-05-29T08:06:11.005+00:00"
     },
     {
         "name": "3-Tier Kitchen Baker's Rack",
@@ -929,12 +1000,15 @@
             "https://m.media-amazon.com/images/I/71mVZcZ2B2L._AC_SL1500_.jpg"
         ],
         "sizes": null,
-        "colors": ["Brown", "White"],
-        "createdAt": {
-            "$timestamp": {
-                "t": 1621978920,
-                "i": 0
+        "colors": [
+            {
+                "$oid": "664f12f46da3668c1944a255"
+            },
+            {
+                "$oid": "664f12f46da3668c1944a257"
             }
-        }
+        ],
+        "createdAt": "2024-05-30T08:06:11.005+00:00",
+        "updatedAt": "2024-05-30T08:06:11.005+00:00"
     }
 ]

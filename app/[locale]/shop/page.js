@@ -4,7 +4,10 @@ import ShopProductList from '@/components/product/ShopProductList';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { refinedURI } from '@/utils/utils';
 
-const ShopPage = ({ params: { locale }, searchParams: { q, category } }) => {
+const ShopPage = ({
+    params: { locale },
+    searchParams: { q, category, color },
+}) => {
     return (
         <>
             <Breadcrumb>
@@ -16,6 +19,7 @@ const ShopPage = ({ params: { locale }, searchParams: { q, category } }) => {
                 <ShopProductList
                     q={refinedURI(q)}
                     category={refinedURI(category)}
+                    color={refinedURI(color)}
                     locale={locale}
                 />
             </div>

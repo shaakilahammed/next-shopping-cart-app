@@ -6,12 +6,12 @@ import {
     replaceMongoIdInObject,
 } from '@/utils/utils';
 
-export const getAllProducts = async (q, category) => {
+export const getAllProducts = async (q, category, color) => {
     try {
         const response = await fetch(
             `${getBaseUrl()}/api/products?q=${encodeURI(
                 q
-            )}&category=${encodeURI(category)}`
+            )}&category=${encodeURI(category)}&color=${encodeURI(color)}`
         );
         const data = await response.json();
         if (response.ok) {

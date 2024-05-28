@@ -1,80 +1,67 @@
-const ColorFilter = ({ title }) => {
+'use client';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
+
+const ColorFilter = ({ title, colors }) => {
+    const [selectedColor, setSelectedColor] = useState('');
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
+    const router = useRouter();
+
+    const params = useMemo(() => new URLSearchParams(searchParams), [
+        searchParams,
+    ]);
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        const value = e.target.value;
+        setSelectedColor(value);
+    };
+    useEffect(() => {
+        const color = params.get('color');
+        if (color) {
+            const decodedColor = decodeURI(color);
+            setSelectedColor(decodedColor);
+        }
+    }, [params]);
+
+    useEffect(() => {
+        if (selectedColor) {
+            params.set('color', encodeURI(selectedColor));
+        } else {
+            params.delete('color');
+        }
+        router.replace(`${pathname}?${params.toString()}`);
+    }, [pathname, selectedColor, router, params]);
     return (
         <div className="pt-4">
             <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">
                 {title}
             </h3>
-            <div className="flex items-center gap-2">
-                <div className="size-selector">
-                    <input
-                        type="radio"
-                        name="size"
-                        id="size-xs"
-                        className="hidden"
-                    />
-                    <label
-                        htmlFor="size-xs"
-                        className="text-xs border border-gray-200 rounded-sm h-6 w-6 flex items-center justify-center cursor-pointer shadow-sm text-gray-600"
-                    >
-                        XS
-                    </label>
-                </div>
-                <div className="size-selector">
-                    <input
-                        type="radio"
-                        name="size"
-                        id="size-sm"
-                        className="hidden"
-                    />
-                    <label
-                        htmlFor="size-sm"
-                        className="text-xs border border-gray-200 rounded-sm h-6 w-6 flex items-center justify-center cursor-pointer shadow-sm text-gray-600"
-                    >
-                        S
-                    </label>
-                </div>
-                <div className="size-selector">
-                    <input
-                        type="radio"
-                        name="size"
-                        id="size-m"
-                        className="hidden"
-                    />
-                    <label
-                        htmlFor="size-m"
-                        className="text-xs border border-gray-200 rounded-sm h-6 w-6 flex items-center justify-center cursor-pointer shadow-sm text-gray-600"
-                    >
-                        M
-                    </label>
-                </div>
-                <div className="size-selector">
-                    <input
-                        type="radio"
-                        name="size"
-                        id="size-l"
-                        className="hidden"
-                    />
-                    <label
-                        htmlFor="size-l"
-                        className="text-xs border border-gray-200 rounded-sm h-6 w-6 flex items-center justify-center cursor-pointer shadow-sm text-gray-600"
-                    >
-                        L
-                    </label>
-                </div>
-                <div className="size-selector">
-                    <input
-                        type="radio"
-                        name="size"
-                        id="size-xl"
-                        className="hidden"
-                    />
-                    <label
-                        htmlFor="size-xl"
-                        className="text-xs border border-gray-200 rounded-sm h-6 w-6 flex items-center justify-center cursor-pointer shadow-sm text-gray-600"
-                    >
-                        XL
-                    </label>
-                </div>
+            <div className="">
+                {colors?.length > 0 &&
+                    colors.map((color) => (
+                        <div
+                            key={color.id}
+                            className="size-selector inline-block mx-1 my-1"
+                        >
+                            <input
+                                type="radio"
+                                name="colors"
+                                id={color?.id}
+                                value={color?.id}
+                                onChange={handleChange}
+                                checked={selectedColor === color.id}
+                                className="hidden"
+                            />
+                            <label
+                                htmlFor={color?.id}
+                                className="text-xs border border-gray-200 rounded-sm px-2 py-1  cursor-pointer shadow-sm text-gray-600"
+                            >
+                                {color.name}
+                            </label>
+                        </div>
+                    ))}
             </div>
         </div>
     );
