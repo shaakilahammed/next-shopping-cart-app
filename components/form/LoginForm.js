@@ -1,5 +1,5 @@
 'use client';
-import { login } from '@/actions/auth';
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 const LoginForm = ({ texts }) => {
@@ -44,13 +44,19 @@ const LoginForm = ({ texts }) => {
 
             try {
                 setPending(true);
-                const response = await login(input);
-                if (!response) {
+                const response = await signIn('credentials', {
+                    email: input.email,
+                    password: input.password,
+                    redirect: false,
+                });
+                if (response.error) {
                     setPending(false);
                     setResponseError('Invalid credentials');
                     return;
+                } else {
+                    router.push('/');
+                    // router.refresh();
                 }
-                router.push('/');
             } catch (error) {
                 setPending(false);
             }

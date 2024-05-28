@@ -1,3 +1,4 @@
+import AuthProvider from '@/providers/AuthProvider';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Inter } from 'next/font/google';
@@ -15,7 +16,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={inter.className}>
-                {children}
+                <AuthProvider>{children}</AuthProvider>
                 <script
                     src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"
                     defer
