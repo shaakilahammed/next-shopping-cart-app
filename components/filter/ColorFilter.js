@@ -1,4 +1,6 @@
 'use client';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -35,9 +37,17 @@ const ColorFilter = ({ title, colors }) => {
     }, [pathname, selectedColor, router, params]);
     return (
         <div className="pt-4">
-            <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">
-                {title}
-            </h3>
+            <div className="flex justify-between items-center mb-3">
+                <span className="text-xl text-gray-800 uppercase font-medium">
+                    {title}
+                </span>
+                <button
+                    className="text-lg  hover:text-red-600 px-2 py-1 text-red-500 rounded-sm flex items-center"
+                    onClick={() => setSelectedColor('')}
+                >
+                    <FontAwesomeIcon icon={faClose} />
+                </button>
+            </div>
             <div className="">
                 {colors?.length > 0 &&
                     colors.map((color) => (

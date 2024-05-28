@@ -11,41 +11,49 @@ export const GET = async (request) => {
 
     const categories = refinedURI(params.get('category') || '');
     const colorId = refinedURI(params.get('color') || '');
-    // try {
-    await connectMongo();
+    const min = refinedURI(params.get('min') || '');
+    const max = refinedURI(params.get('max') || '');
+    try {
+        await connectMongo();
 
-    const productQuery = { name: { $regex: regex } };
-    if (categories) {
-        const categoriesToMatch = categories.split('|');
-        productQuery.categoryId = { $in: categoriesToMatch };
-    }
+        const productQuery = { name: { $regex: regex } };
+        if (categories) {
+            const categoriesToMatch = categories.split('|');
+            productQuery.categoryId = { $in: categoriesToMatch };
+        }
 
-    // if (colorId && colorId.trim() !== '') {
-    //     productQuery.colors = { $in: [new mongoose.Types.ObjectId(colorId)] };
-    // }
-    if (colorId && colorId.trim() !== '') {
-        productQuery.colors = new mongoose.Types.ObjectId(colorId);
-    }
-    // console.log(mongoose.Types.ObjectId(colorId));
+        if (colorId && colorId.trim() !== '') {
+            productQuery.colors = new mongoose.Types.ObjectId(colorId);
+        }
 
-    const products = await Product.find(productQuery)
-        .select('_id name price discountPrice stock images')
-        .lean();
-    if (products) {
-        return NextResponse.json({
-            success: true,
-            data: products,
-        });
-    } else {
+        if (min || max) {
+            productQuery.discountPrice = {};
+            if (min) {
+                productQuery.discountPrice.$gte = parseFloat(min);
+            }
+            if (max) {
+                productQuery.discountPrice.$lte = parseFloat(max);
+            }
+        }
+
+        const products = await Product.find(productQuery)
+            .select('_id name price discountPrice stock images')
+            .lean();
+        if (products) {
+            return NextResponse.json({
+                success: true,
+                data: products,
+            });
+        } else {
+            return NextResponse.json(
+                { success: false, data: null },
+                { status: 404 }
+            );
+        }
+    } catch (error) {
         return NextResponse.json(
             { success: false, data: null },
-            { status: 404 }
+            { status: 400 }
         );
     }
-    // } catch (error) {
-    //     return NextResponse.json(
-    //         { success: false, data: null },
-    //         { status: 400 }
-    //     );
-    // }
 };

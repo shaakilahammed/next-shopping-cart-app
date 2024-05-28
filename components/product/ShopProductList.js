@@ -3,8 +3,8 @@ import { getDictionary } from '@/lib/dictionaries';
 import ProductNotFound from '../ui/ProductNotFound';
 import ProductCard from './ProductCard';
 
-const ShopProductList = async ({ q, category, locale, color }) => {
-    const products = await getAllProducts(q, category, color);
+const ShopProductList = async ({ q, category, locale, color, min, max }) => {
+    const products = await getAllProducts(q, category, color, min, max);
     const dict = await getDictionary(locale);
     return (
         <div className="col-span-3">

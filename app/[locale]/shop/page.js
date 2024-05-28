@@ -6,7 +6,7 @@ import { refinedURI } from '@/utils/utils';
 
 const ShopPage = ({
     params: { locale },
-    searchParams: { q, category, color },
+    searchParams: { q, category, color, min, max },
 }) => {
     return (
         <>
@@ -20,6 +20,8 @@ const ShopPage = ({
                     q={refinedURI(q)}
                     category={refinedURI(category)}
                     color={refinedURI(color)}
+                    min={refinedURI(min)}
+                    max={refinedURI(max)}
                     locale={locale}
                 />
             </div>
