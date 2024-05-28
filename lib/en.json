@@ -63,6 +63,7 @@
         "sku": "SKU:",
         "note": "Note:",
         "quantity": "Quantity",
+        "color": "Color",
         "details": "Product details",
         "addToCart": "Add to cart",
         "addToWishlist": "Wishlist",

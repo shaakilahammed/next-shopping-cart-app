@@ -3,7 +3,9 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const ImageGallery = ({ images }) => {
-    const [selectedImage, setSelectedImage] = useState(images[0]);
+    const [selectedImage, setSelectedImage] = useState(
+        images.length > 0 && images[0]
+    );
     return (
         <div>
             <div className="h-[500px] flex items-center overflow-hidden">
@@ -17,7 +19,7 @@ const ImageGallery = ({ images }) => {
             </div>
             <div className="grid grid-cols-5 gap-4 mt-4">
                 {images?.length > 0 &&
-                    images.map((image, index) => (
+                    images?.map((image, index) => (
                         <Image
                             key={index}
                             src={image}

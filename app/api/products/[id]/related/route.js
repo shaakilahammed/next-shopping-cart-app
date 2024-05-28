@@ -16,6 +16,14 @@ export const GET = async (request, { params }) => {
             { $match: { _id: { $ne: product._id } } },
             { $limit: 4 },
             {
+                $lookup: {
+                    from: 'colors',
+                    localField: 'colors',
+                    foreignField: '_id',
+                    as: 'colors',
+                },
+            },
+            {
                 $project: {
                     _id: 1,
                     name: 1,
@@ -23,6 +31,8 @@ export const GET = async (request, { params }) => {
                     discountPrice: 1,
                     stock: 1,
                     images: 1,
+                    'colors._id': 1,
+                    'colors.name': 1,
                 },
             },
         ]);

@@ -1,4 +1,5 @@
 import Ratings from '@/components/ratings/Ratings';
+import { replaceMongoIdInArray } from '@/utils/utils';
 import {
     faFacebookF,
     faInstagram,
@@ -7,6 +8,7 @@ import {
 import { faBagShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import ProductColor from './ProductColor';
 
 const ProductInfo = ({ product, texts }) => {
     return (
@@ -77,6 +79,10 @@ const ProductInfo = ({ product, texts }) => {
                     </div>
                 </div>
             </div>
+            <ProductColor
+                colors={replaceMongoIdInArray(product?.colors)}
+                colorText={texts.color}
+            />
 
             <div className="mt-6 flex gap-3 border-b border-gray-200 pb-5 pt-5">
                 <Link

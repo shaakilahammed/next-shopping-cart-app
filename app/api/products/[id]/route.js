@@ -1,6 +1,7 @@
 import connectMongo from '@/dbConnect/connectMongo';
 import Brand from '@/models/Brand';
 import Category from '@/models/Category';
+import Color from '@/models/Color';
 import Product from '@/models/Product';
 import { NextResponse } from 'next/server';
 
@@ -11,6 +12,7 @@ export const GET = async (request, { params }) => {
         const product = await Product.findById(productId)
             .populate('brandId', null, Brand)
             .populate('categoryId', '_id name', Category)
+            .populate('colors', '_id name', Color)
             .lean();
         if (product) {
             return NextResponse.json({

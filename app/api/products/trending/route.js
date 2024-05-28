@@ -8,6 +8,14 @@ export const GET = async () => {
         const products = await Product.aggregate([
             { $sample: { size: 4 } },
             {
+                $lookup: {
+                    from: 'colors',
+                    localField: 'colors',
+                    foreignField: '_id',
+                    as: 'colors',
+                },
+            },
+            {
                 $project: {
                     _id: 1,
                     name: 1,
@@ -15,6 +23,8 @@ export const GET = async () => {
                     discountPrice: 1,
                     stock: 1,
                     images: 1,
+                    'colors._id': 1,
+                    'colors.name': 1,
                 },
             },
         ]);

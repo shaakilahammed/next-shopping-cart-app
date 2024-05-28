@@ -1,4 +1,5 @@
 import connectMongo from '@/dbConnect/connectMongo';
+import Color from '@/models/Color';
 import Product from '@/models/Product';
 import { refinedURI } from '@/utils/utils';
 import mongoose from 'mongoose';
@@ -37,7 +38,8 @@ export const GET = async (request) => {
         }
 
         const products = await Product.find(productQuery)
-            .select('_id name price discountPrice stock images')
+            .select('_id name price discountPrice stock images colors')
+            .populate('colors', '_id name', Color)
             .lean();
         if (products) {
             return NextResponse.json({

@@ -35,12 +35,25 @@ const ProductCard = ({ product, cartText, noRatingsText }) => {
                     </Link>
                 </div>
             </div>
+            <div>
+                {product?.colors &&
+                    product?.colors?.length > 0 &&
+                    product?.colors?.map((color) => (
+                        <span
+                            key={color?.id}
+                            className="text-[10px] border border-primary rounded-sm px-1 py-0.5 shadow-sm text-primary mx-1"
+                        >
+                            {color.name}
+                        </span>
+                    ))}
+            </div>
             <div className="pt-4 pb-3 px-4">
                 <Link href={`/shop/${product?.id}`}>
                     <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
                         {product?.name}
                     </h4>
                 </Link>
+
                 <div className="flex items-baseline mb-1 space-x-2">
                     <p className="text-xl text-primary font-semibold">
                         ${product?.discountPrice}
