@@ -7,7 +7,10 @@ const BillingAddress = ({ texts, address }) => {
                 <h3 className="font-medium text-gray-800 text-lg">
                     {texts.billingAddress}
                 </h3>
-                <Link href="#" className="text-primary">
+                <Link
+                    href={`/account/edit/${encodeURI('Billing Address')}`}
+                    className="text-primary"
+                >
                     {texts.edit}
                 </Link>
             </div>
@@ -18,7 +21,7 @@ const BillingAddress = ({ texts, address }) => {
                             {address?.name}
                         </h4>
                         <p className="text-gray-800">{address?.email}</p>
-                        <p className="text-gray-800">{address?.address}</p>
+                        <p className="text-gray-800">{`${address?.street}, ${address?.city}, ${address?.country}`}</p>
                         <p className="text-gray-800">{address?.phone}</p>
                     </>
                 ) : (

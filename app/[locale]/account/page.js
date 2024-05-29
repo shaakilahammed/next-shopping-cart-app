@@ -15,7 +15,6 @@ const AccountPage = async ({ params: { locale } }) => {
         redirect('/login');
     }
     const profile = await getMyProfile(session?.tokens?.accessToken);
-    // console.log(session);
     return (
         <>
             <Breadcrumb>

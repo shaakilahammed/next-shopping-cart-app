@@ -7,7 +7,10 @@ const PersonalProfile = ({ texts, profile }) => {
                 <h3 className="font-medium text-gray-800 text-lg">
                     {texts.personalProfile}
                 </h3>
-                <Link href="#" className="text-primary">
+                <Link
+                    href={`/account/edit/${encodeURI('Profile')}`}
+                    className="text-primary"
+                >
                     {texts.edit}
                 </Link>
             </div>

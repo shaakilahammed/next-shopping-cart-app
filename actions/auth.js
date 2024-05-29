@@ -32,3 +32,21 @@ export const getMyProfile = async (accessToken) => {
         console.log(error);
     }
 };
+
+export const updateMyProfile = async (accessToken, toUpdate) => {
+    try {
+        const response = await fetch(`${getBaseUrl()}/api/auth/profile`, {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+            body: JSON.stringify(toUpdate),
+        });
+        const data = await response.json();
+        if (response.ok) {
+            return data?.data;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};

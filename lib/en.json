@@ -105,6 +105,16 @@
         "shippingAddress": "Shipping address",
         "billingAddress": "Billing address",
         "noAddress": "No address added yet",
+        "address": {
+            "fullName": "Full Name",
+            "phoneNumber": "Checkout",
+            "emailAddress": "Email Address",
+            "streetAddress": "Street Address",
+            "city": "City",
+            "country": "Country",
+            "change": "Change",
+            "loading": "Changing"
+        },
         "edit": "Edit"
     },
     "checkout": {
@@ -112,9 +122,9 @@
         "fullName": "Full Name",
         "phoneNumber": "Checkout",
         "emailAddress": "Email Address",
-        "streetAddress": "Checkout",
+        "streetAddress": "Street Address",
         "city": "City",
-        "country": "Checkout",
+        "country": "Country",
         "orderSummary": "Order Summary",
         "subtotal": "Subtotal",
         "shipping": "Shipping",

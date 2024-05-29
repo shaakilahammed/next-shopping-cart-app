@@ -105,6 +105,16 @@
         "shippingAddress": "শিপিং ঠিকানা",
         "billingAddress": "বিলিং ঠিকানা",
         "noAddress": "কোনো ঠিকানা এড করা হয়নি",
+        "address": {
+            "fullName": "পুরো নাম",
+            "phoneNumber": "ফোন নাম্বার",
+            "emailAddress": "ইমেল এড্রেস",
+            "streetAddress": "রাস্তা",
+            "city": "শহর",
+            "country": "দেশ",
+            "change": "পরিবর্তন করুন",
+            "loading": "পরিবর্তন হচ্ছে"
+        },
         "edit": "পরিবর্তন"
     },
     "checkout": {
