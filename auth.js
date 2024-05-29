@@ -38,7 +38,7 @@ export const {
                         return null;
                     }
                     const user = await res.json();
-                    return user;
+                    return { ...user, provider: 'credentials' };
                 } catch (error) {
                     return null;
                 }
@@ -47,16 +47,32 @@ export const {
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            // authorization: {
+            //     params: { access_type: 'offline', prompt: 'consent' },
+            // },
+            // profile(profile) {
+            //     return {
+            //         ...profile,
+            //         provider: 'google',
+            //     };
+            // },
         }),
         FacebookProvider({
             clientId: process.env.FACEBOOK_CLIENT_ID,
             clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+            // profile(profile) {
+            //     console.log(profile);
+            //     return {
+            //         ...profile,
+            //         provider: 'google',
+            //     };
+            // },
         }),
     ],
     callbacks: {
         async jwt({ token, user }) {
             if (user) return { ...token, ...user };
-            // console.log('token', token);
+
             if (token?.tokens?.expiresIn) {
                 if (new Date().getTime() < token.tokens.expiresIn) {
                     return token;
@@ -79,8 +95,10 @@ export const {
         },
         async session({ token, session }) {
             // console.log('session', token);
+            // console.log(token.provider);
             session.user = token.user ?? token;
             session.tokens = token.tokens;
+            // session.provider = token.provider;
             return session;
         },
     },

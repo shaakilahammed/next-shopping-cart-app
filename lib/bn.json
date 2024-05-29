@@ -104,6 +104,7 @@
         "personalProfile": "ব্যক্তিগত প্রোফাইল",
         "shippingAddress": "শিপিং ঠিকানা",
         "billingAddress": "বিলিং ঠিকানা",
+        "noAddress": "কোনো ঠিকানা এড করা হয়নি",
         "edit": "পরিবর্তন"
     },
     "checkout": {

@@ -6,7 +6,7 @@ import SignOut from './SignOut';
 const SignInOut = ({ dict }) => {
     // const session = await auth();
     const { data: session } = useSession();
-    console.log(session);
+    // console.log(session);
     return session && session?.user ? (
         <div className="flex">
             <div className="text-gray-200">

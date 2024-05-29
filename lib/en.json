@@ -104,6 +104,7 @@
         "personalProfile": "Personal Profile",
         "shippingAddress": "Shipping address",
         "billingAddress": "Billing address",
+        "noAddress": "No address added yet",
         "edit": "Edit"
     },
     "checkout": {

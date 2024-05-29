@@ -1,3 +1,4 @@
+import { getMyProfile } from '@/actions/auth';
 import { auth } from '@/auth';
 import BillingAddress from '@/components/account/BillingAddress';
 import PersonalProfile from '@/components/account/PersonalProfile';
@@ -8,10 +9,13 @@ import { redirect } from 'next/navigation';
 
 const AccountPage = async ({ params: { locale } }) => {
     const dict = await getDictionary(locale);
+
     const session = await auth();
     if (!session) {
         redirect('/login');
     }
+    const profile = await getMyProfile(session?.tokens?.accessToken);
+    // console.log(session);
     return (
         <>
             <Breadcrumb>
@@ -19,11 +23,17 @@ const AccountPage = async ({ params: { locale } }) => {
             </Breadcrumb>
             <div className="container  items-start gap-6 pt-4 pb-16">
                 <div className=" grid grid-cols-3 gap-4 mx-auto max-w-5xl">
-                    <PersonalProfile texts={dict.account} />
+                    <PersonalProfile texts={dict.account} profile={profile} />
 
-                    <ShippingAddress texts={dict.account} />
+                    <ShippingAddress
+                        texts={dict.account}
+                        address={profile?.shippingAddress}
+                    />
 
-                    <BillingAddress texts={dict.account} />
+                    <BillingAddress
+                        texts={dict.account}
+                        address={profile?.billingAddress}
+                    />
                 </div>
             </div>
         </>
