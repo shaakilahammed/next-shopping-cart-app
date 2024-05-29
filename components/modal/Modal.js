@@ -35,7 +35,7 @@ const Modal = ({ children }) => {
             onClick={onClose}
         >
             <div
-                className="dark:bg-body bg-white font-[Sora] dark:text-white text-dark relative mx-auto px-5 py-10 lg:w-[600px] lg:h-[90vh] rounded-md overflow-y-scroll"
+                className="dark:bg-body bg-white font-[Sora] dark:text-white text-dark relative mx-auto px-5 py-0 lg:w-[600px] lg:h-[90vh] rounded-md overflow-y-scroll"
                 ref={wrapper}
             >
                 <div className="absolute right-1 top-1 ">

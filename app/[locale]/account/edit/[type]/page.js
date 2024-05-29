@@ -1,6 +1,7 @@
 import { getMyProfile } from '@/actions/auth';
 import { auth } from '@/auth';
 import AddressForm from '@/components/form/AddressForm';
+import ProfileForm from '@/components/form/ProfileForm';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { getDictionary } from '@/lib/dictionaries';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -28,19 +29,31 @@ const AddressPage = async ({ params: { locale, type } }) => {
             <div className="contain py-4">
                 <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
                     <h2 className="text-2xl uppercase font-medium mb-1">
-                        {dict.account.shippingAddress}
+                        {decodedType === 'Profile'
+                            ? dict.account.personalProfile
+                            : decodedType === 'Shipping Address'
+                            ? dict.account.shippingAddress
+                            : dict.account.billingAddress}
                     </h2>
-
-                    <AddressForm
-                        texts={dict.account.address}
-                        type={decodedType}
-                        accessToken={session?.tokens?.accessToken}
-                        address={
-                            decodedType === 'Shipping Address'
-                                ? profile?.shippingAddress
-                                : profile?.billingAddress
-                        }
-                    />
+                    {decodedType === 'Profile' ? (
+                        <ProfileForm
+                            texts={dict.account.address}
+                            type={decodedType}
+                            accessToken={session?.tokens?.accessToken}
+                            profile={profile}
+                        />
+                    ) : (
+                        <AddressForm
+                            texts={dict.account.address}
+                            type={decodedType}
+                            accessToken={session?.tokens?.accessToken}
+                            address={
+                                decodedType === 'Shipping Address'
+                                    ? profile?.shippingAddress
+                                    : profile?.billingAddress
+                            }
+                        />
+                    )}
                 </div>
             </div>
         </>

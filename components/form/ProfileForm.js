@@ -1,10 +1,10 @@
 'use client';
 
-import { createAddress, updateAddress } from '@/actions/address';
+import { updateMyProfile } from '@/actions/auth';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-const AddressForm = ({ texts, type, address, accessToken }) => {
+const ProfileForm = ({ texts, profile, accessToken }) => {
     const router = useRouter();
     const [pending, setPending] = useState(false);
     const [responseError, setResponseError] = useState('');
@@ -13,18 +13,16 @@ const AddressForm = ({ texts, type, address, accessToken }) => {
         name: '',
         email: '',
         phone: '',
-        street: '',
-        city: '',
-        country: '',
+        password: '',
+        confirm: '',
     });
     const [input, setInput] = useState({
-        id: address?._id || '',
-        name: address?.name || '',
-        email: address?.email || '',
-        phone: address?.phone || '',
-        street: address?.street || '',
-        city: address?.city || '',
-        country: address?.country || '',
+        id: profile?.id || '',
+        name: profile?.name || '',
+        email: profile?.email || '',
+        phone: profile?.phone || '',
+        password: '',
+        confirm: '',
     });
 
     const handleChange = (e) => {
@@ -36,8 +34,6 @@ const AddressForm = ({ texts, type, address, accessToken }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // const formData = new FormData(e.currentTarget);
-        // const input = Object.fromEntries(formData);
         const errors = {};
         let hasError = false;
 
@@ -51,19 +47,24 @@ const AddressForm = ({ texts, type, address, accessToken }) => {
             hasError = true;
         }
 
-        if (!input.street.trim()) {
-            errors.street = 'Street address is required';
+        if (!input.email.trim()) {
+            errors.email = 'Email is required';
+            hasError = true;
+        } else if (!/\S+@\S+\.\S+/.test(input.email)) {
+            errors.email = 'Email is invalid';
             hasError = true;
         }
 
-        if (!input.city.trim()) {
-            errors.city = 'City is required';
-            hasError = true;
-        }
+        if (input.password) {
+            if (input.password.length < 6) {
+                errors.password = 'Password must be at least 6 characters';
+                hasError = true;
+            }
 
-        if (!input.country.trim()) {
-            errors.country = 'Country is required';
-            hasError = true;
+            if (input.confirm !== input.password) {
+                errors.confirm = 'Passwords do not match';
+                hasError = true;
+            }
         }
 
         if (hasError) {
@@ -73,9 +74,8 @@ const AddressForm = ({ texts, type, address, accessToken }) => {
                 name: '',
                 email: '',
                 phone: '',
-                street: '',
-                city: '',
-                country: '',
+                password: '',
+                confirm: '',
             });
 
             // console.log(JSON.stringify(input));
@@ -84,13 +84,17 @@ const AddressForm = ({ texts, type, address, accessToken }) => {
                 setPending(true);
                 setSuccess('');
 
-                const response = address
-                    ? await updateAddress(input.id, input)
-                    : await createAddress(type, input, accessToken);
+                const response = await updateMyProfile(accessToken, {
+                    name: input.name,
+                    email: input.email,
+                    phone: input.phone,
+                    password: input.password,
+                });
+                console.log(response);
 
                 if (response.success) {
                     setPending(false);
-                    setSuccess('Address updated successfully');
+                    setSuccess('Profile updated successfully');
 
                     e.target.reset();
                     setResponseError('');
@@ -182,65 +186,46 @@ const AddressForm = ({ texts, type, address, accessToken }) => {
 
                 <div>
                     <label
-                        htmlFor="street"
+                        htmlFor="password"
                         className="text-gray-600 mb-2 block"
                     >
-                        {texts.streetAddress}
+                        {texts.password}
                     </label>
                     <input
-                        type="text"
-                        name="street"
-                        id="street"
+                        type="password"
+                        name="password"
+                        id="password"
                         className={`block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400 ${
-                            error.street && 'border-primary'
+                            error.password && 'border-primary'
                         }`}
                         onChange={handleChange}
-                        value={input.street}
-                        placeholder="14/C Osman Goni Road"
+                        value={input.password}
+                        placeholder="*******"
                     />
-                    {error.street && (
-                        <p className="text-sm text-red-500">{error.street}</p>
-                    )}
-                </div>
-                <div>
-                    <label htmlFor="city" className="text-gray-600 mb-2 block">
-                        {texts.city}
-                    </label>
-                    <input
-                        type="text"
-                        name="city"
-                        id="city"
-                        className={`block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400 ${
-                            error.city && 'border-primary'
-                        }`}
-                        onChange={handleChange}
-                        value={input.city}
-                        placeholder="Uttara, Dhaka"
-                    />
-                    {error.city && (
-                        <p className="text-sm text-red-500">{error.city}</p>
+                    {error.password && (
+                        <p className="text-sm text-red-500">{error.password}</p>
                     )}
                 </div>
                 <div>
                     <label
-                        htmlFor="country"
+                        htmlFor="confirm"
                         className="text-gray-600 mb-2 block"
                     >
-                        {texts.country}
+                        {texts.confirmPassword}
                     </label>
                     <input
-                        type="text"
-                        name="country"
-                        id="country"
+                        type="password"
+                        name="confirm"
+                        id="confirm"
                         className={`block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400 ${
-                            error.country && 'border-primary'
+                            error.confirm && 'border-primary'
                         }`}
                         onChange={handleChange}
-                        value={input.country}
-                        placeholder="Bangladesh"
+                        value={input.confirm}
+                        placeholder="*******"
                     />
-                    {error.country && (
-                        <p className="text-sm text-red-500">{error.country}</p>
+                    {error.confirm && (
+                        <p className="text-sm text-red-500">{error.confirm}</p>
                     )}
                 </div>
             </div>
@@ -257,4 +242,4 @@ const AddressForm = ({ texts, type, address, accessToken }) => {
     );
 };
 
-export default AddressForm;
+export default ProfileForm;

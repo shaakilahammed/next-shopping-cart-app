@@ -44,7 +44,7 @@ export const updateMyProfile = async (accessToken, toUpdate) => {
         });
         const data = await response.json();
         if (response.ok) {
-            return data?.data;
+            return data;
         }
     } catch (error) {
         console.log(error);

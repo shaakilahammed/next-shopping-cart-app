@@ -1,7 +1,9 @@
 import connectMongo from '@/dbConnect/connectMongo';
 import Address from '@/models/Address';
 import User from '@/models/User';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+
 import { NextResponse } from 'next/server';
 
 export const GET = async (req) => {
@@ -82,18 +84,20 @@ export const PUT = async (req) => {
         const request = await req.json();
 
         // Update user details
-        user.name = request.name || user.name;
-        user.email = request.email || user.email;
-        user.phone = request.email || user.phone;
-        user.image = request.image || user.image;
-
+        user.name = request?.name || user.name;
+        user.email = request?.email || user.email;
+        user.phone = request?.phone || user.phone;
+        user.image = request?.image || user.image;
+        user.password =
+            (request?.password && (await bcrypt.hash(request.password, 10))) ||
+            user.password;
         // Update user's shipping address if provided
-        if (request.shippingAddress) {
+        if (request?.shippingAddress) {
             user.shippingAddress = request.shippingAddress;
         }
 
         // Update user's billing address if provided
-        if (request.billingAddress) {
+        if (request?.billingAddress) {
             user.billingAddress = request.billingAddress;
         }
 
@@ -101,7 +105,10 @@ export const PUT = async (req) => {
         await user.save();
 
         // Return updated user details
-        return NextResponse.json({ data: user.toObject() }, { status: 200 });
+        return NextResponse.json(
+            { success: true, data: user.toObject() },
+            { status: 200 }
+        );
     } catch (error) {
         console.error('Error updating profile:', error);
         return NextResponse.json(

@@ -84,6 +84,7 @@
         "loading": "Creating account",
         "message": "Register for new cosutumer",
         "fullName": "Full Name",
+        "phone": "Phone",
         "email": "Email Address",
         "password": "Password",
         "confirmPassword": "Confirm password",
@@ -112,6 +113,8 @@
             "streetAddress": "Street Address",
             "city": "City",
             "country": "Country",
+            "password": "Password",
+            "confirmPassword": "Confirm password",
             "change": "Change",
             "loading": "Changing"
         },
