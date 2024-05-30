@@ -1,6 +1,7 @@
 'use server';
 
 import { getBaseUrl } from '@/utils/utils';
+import { redirect } from 'next/navigation';
 
 export const addToWishlist = async (accessToken, productId, colorId) => {
     try {
@@ -17,11 +18,10 @@ export const addToWishlist = async (accessToken, productId, colorId) => {
         if (response.ok) {
             return data;
         } else {
-            throw new Error(data.message || 'Failed to add item to wishlist');
+            redirect('/login');
         }
     } catch (error) {
-        console.error('Error adding to wishlist:', error);
-        return null;
+        redirect('/login');
     }
 };
 
@@ -40,13 +40,10 @@ export const removeFromWishlist = async (accessToken, productId, colorId) => {
         if (response.ok) {
             return data;
         } else {
-            throw new Error(
-                data.message || 'Failed to remove item from wishlist'
-            );
+            redirect('/login');
         }
     } catch (error) {
-        console.error('Error removing from wishlist:', error);
-        return null;
+        redirect('/login');
     }
 };
 
@@ -67,10 +64,9 @@ export const getWishlist = async (accessToken) => {
         if (response.ok) {
             return data?.data;
         } else {
-            throw new Error(data.message || 'Failed to fetch wishlist');
+            redirect('/login');
         }
     } catch (error) {
-        console.error('Error fetching wishlist:', error);
-        return null;
+        redirect('/login');
     }
 };

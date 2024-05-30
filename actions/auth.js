@@ -2,6 +2,7 @@
 
 import { signIn } from '@/auth';
 import { getBaseUrl, replaceMongoIdInObject } from '@/utils/utils';
+import { redirect } from 'next/navigation';
 
 export const login = async (input) => {
     try {
@@ -29,7 +30,7 @@ export const getMyProfile = async (accessToken) => {
             return replaceMongoIdInObject(data?.data);
         }
     } catch (error) {
-        console.log(error);
+        redirect('/login');
     }
 };
 
@@ -47,6 +48,6 @@ export const updateMyProfile = async (accessToken, toUpdate) => {
             return data;
         }
     } catch (error) {
-        console.log(error);
+        redirect('/login');
     }
 };

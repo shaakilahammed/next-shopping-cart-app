@@ -1,5 +1,6 @@
 'use server';
 import { getBaseUrl } from '@/utils/utils';
+import { redirect } from 'next/navigation';
 import { updateMyProfile } from './auth';
 
 export const createAddress = async (type, addressData, accessToken) => {
@@ -26,11 +27,10 @@ export const createAddress = async (type, addressData, accessToken) => {
             await updateMyProfile(accessToken, toUpdate);
             return data;
         } else {
-            throw new Error(data.message || 'Failed to create address');
+            redirect('/login');
         }
     } catch (error) {
-        console.error('Error creating address:', error);
-        throw error;
+        redirect('/login');
     }
 };
 
@@ -49,10 +49,9 @@ export const updateAddress = async (id, addressData, accessToken) => {
         if (response.ok) {
             return data;
         } else {
-            throw new Error(data.message || 'Failed to update address');
+            redirect('/login');
         }
     } catch (error) {
-        console.error('Error updating address:', error);
-        throw error;
+        redirect('/login');
     }
 };
