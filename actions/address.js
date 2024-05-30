@@ -1,4 +1,5 @@
 'use server';
+import { signOut } from '@/auth';
 import { getBaseUrl } from '@/utils/utils';
 import { updateMyProfile } from './auth';
 
@@ -14,27 +15,26 @@ export const createAddress = async (type, addressData, accessToken) => {
         });
         const data = await response.json();
         if (response.ok) {
-            let toUpdate;
+            let toUpdate = {};
             if (type === 'Shipping Address') {
-                toUpdate = { shippingAddress: data?.data?._id };
+                toUpdate.shippingAddress = data?.data?._id;
+            } else if (type === 'Billing Address') {
+                toUpdate.billingAddress = data?.data?._id;
             }
-            if (type === 'Billing Address') {
-                toUpdate = { billingAddress: data?.data?._id };
-            }
-            // console.log(accessToken, toUpdate);
+
             await updateMyProfile(accessToken, toUpdate);
             return data;
+        } else if (response.status === 401) {
+            await signOut({ callbackUrl: `/login` });
         } else {
             throw new Error(data.message || 'Failed to create address');
         }
     } catch (error) {
-        console.error('Error creating address:', error);
-        throw error;
+        throw new Error(error);
     }
 };
 
 export const updateAddress = async (id, addressData, accessToken) => {
-    console.log(addressData, id);
     try {
         const response = await fetch(`${getBaseUrl()}/api/address`, {
             method: 'PUT',
@@ -47,11 +47,12 @@ export const updateAddress = async (id, addressData, accessToken) => {
         const data = await response.json();
         if (response.ok) {
             return data;
+        } else if (response.status === 401) {
+            await signOut({ callbackUrl: `/login` });
         } else {
             throw new Error(data.message || 'Failed to update address');
         }
     } catch (error) {
-        console.error('Error updating address:', error);
-        throw error;
+        throw new Error(error);
     }
 };

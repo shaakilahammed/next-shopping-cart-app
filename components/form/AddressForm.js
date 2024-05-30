@@ -78,8 +78,6 @@ const AddressForm = ({ texts, type, address, accessToken, locale }) => {
                 country: '',
             });
 
-            // console.log(JSON.stringify(input));
-
             try {
                 setPending(true);
                 setSuccess('');
@@ -87,7 +85,6 @@ const AddressForm = ({ texts, type, address, accessToken, locale }) => {
                 const response = address
                     ? await updateAddress(input.id, input, accessToken)
                     : await createAddress(type, input, accessToken);
-
                 if (response.success) {
                     setPending(false);
                     setSuccess('Address updated successfully');
@@ -95,11 +92,6 @@ const AddressForm = ({ texts, type, address, accessToken, locale }) => {
                     e.target.reset();
                     setResponseError('');
                     router.replace(`/${locale}/account`);
-                } else {
-                    setResponseError(
-                        response.message || 'Something went wrong'
-                    );
-                    setPending(false);
                 }
             } catch (error) {
                 setPending(false);

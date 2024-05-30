@@ -8,9 +8,14 @@ export const POST = async (req) => {
     try {
         await connectMongo();
         const tokenVerification = await verifyToken(req);
+
         if (!tokenVerification.success) {
-            return tokenVerification;
+            return NextResponse.json(
+                { success: false, message: tokenVerification?.message },
+                { status: 401 }
+            );
         }
+
         const { name, email, phone, street, city, country } = await req.json();
 
         if (!name || !phone || !street || !city || !country) {
@@ -49,8 +54,12 @@ export const PUT = async (req) => {
     try {
         await connectMongo();
         const tokenVerification = await verifyToken(req);
+
         if (!tokenVerification.success) {
-            return tokenVerification;
+            return NextResponse.json(
+                { success: false, message: tokenVerification?.message },
+                { status: 401 }
+            );
         }
         const {
             id,
