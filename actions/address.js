@@ -8,7 +8,9 @@ export const createAddress = async (type, addressData, accessToken) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${accessToken}`,
             },
+
             body: JSON.stringify(addressData),
         });
         const data = await response.json();
@@ -20,7 +22,7 @@ export const createAddress = async (type, addressData, accessToken) => {
             if (type === 'Billing Address') {
                 toUpdate = { billingAddress: data?.data?._id };
             }
-            console.log(accessToken, toUpdate);
+            // console.log(accessToken, toUpdate);
             await updateMyProfile(accessToken, toUpdate);
             return data;
         } else {
@@ -32,13 +34,14 @@ export const createAddress = async (type, addressData, accessToken) => {
     }
 };
 
-export const updateAddress = async (id, addressData) => {
-    console.log(addressData, id);
+export const updateAddress = async (id, addressData, accessToken) => {
+    // console.log(addressData, id);
     try {
         const response = await fetch(`${getBaseUrl()}/api/address`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${accessToken}`,
             },
             body: JSON.stringify({ id, ...addressData }),
         });

@@ -1,15 +1,12 @@
 import { getDictionary } from '@/lib/dictionaries';
-import {
-    faBagShopping,
-    faHeart,
-    faUser,
-} from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import Search from '../filter/Search';
 import LanguageSwitcher from './LanguageSwitcher';
+import WishListButton from './WishListButton';
 
 const Header = async ({ locale }) => {
     const dict = await getDictionary(locale);
@@ -31,20 +28,10 @@ const Header = async ({ locale }) => {
                 </Suspense>
 
                 <div className="flex items-center space-x-4">
-                    <Link
-                        href={`/${locale}/wish-list`}
-                        className="text-center text-gray-700 hover:text-primary transition relative"
-                    >
-                        <div className="text-2xl">
-                            <FontAwesomeIcon icon={faHeart} />
-                        </div>
-                        <div className="text-xs leading-3">
-                            {dict.header.wishlist}
-                        </div>
-                        <div className="absolute right-0 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">
-                            8
-                        </div>
-                    </Link>
+                    <WishListButton
+                        locale={locale}
+                        text={dict.header.wishlist}
+                    />
                     <Link
                         href={`/${locale}/checkout`}
                         className="text-center text-gray-700 hover:text-primary transition relative"

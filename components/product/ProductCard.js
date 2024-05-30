@@ -27,7 +27,7 @@ const ProductCard = ({ product, cartText, noRatingsText, locale }) => {
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Link>
                     <Link
-                        href="#"
+                        href={`/${locale}/wish-list/${product?.id}?color=${product?.colors[0]._id}`}
                         className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
                         title="add to wishlist"
                     >
@@ -40,7 +40,7 @@ const ProductCard = ({ product, cartText, noRatingsText, locale }) => {
                     product?.colors?.length > 0 &&
                     product?.colors?.map((color) => (
                         <span
-                            key={color?.id}
+                            key={color?._id}
                             className="text-[10px] border border-primary rounded-sm px-1 py-0.5 shadow-sm text-primary mx-1"
                         >
                             {color.name}
@@ -68,7 +68,7 @@ const ProductCard = ({ product, cartText, noRatingsText, locale }) => {
                 />
             </div>
             <Link
-                href="#"
+                href={`/${locale}/wish-list/${product?.id}`}
                 className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
             >
                 {cartText}

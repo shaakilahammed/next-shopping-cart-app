@@ -1,8 +1,8 @@
 import connectMongo from '@/dbConnect/connectMongo';
 import Address from '@/models/Address';
 import User from '@/models/User';
+import verifyToken from '@/utils/verifyToken';
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
 
 import { NextResponse } from 'next/server';
 
@@ -10,23 +10,12 @@ export const GET = async (req) => {
     try {
         await connectMongo();
 
-        const accessToken = req.headers.get('authorization')?.split(' ')[1];
-
-        if (!accessToken) {
-            return NextResponse.json(
-                { message: 'Access token required' },
-                { status: 401 }
-            );
+        const tokenVerification = await verifyToken(req);
+        if (!tokenVerification.success) {
+            return tokenVerification;
         }
 
-        const decoded = await jwt.verify(accessToken, process.env.SECRET_KEY);
-
-        if (!decoded) {
-            return NextResponse.json(
-                { message: 'Invalid access token' },
-                { status: 401 }
-            );
-        }
+        const decoded = tokenVerification.decoded;
 
         const user = await User.findById(decoded.id)
             .populate('shippingAddress', null, Address)
@@ -55,21 +44,12 @@ export const GET = async (req) => {
 export const PUT = async (req) => {
     try {
         await connectMongo();
-        const accessToken = req.headers.get('authorization')?.split(' ')[1];
-        if (!accessToken) {
-            return NextResponse.json(
-                { message: 'Access token required' },
-                { status: 401 }
-            );
+        const tokenVerification = await verifyToken(req);
+        if (!tokenVerification.success) {
+            return tokenVerification;
         }
-        const decoded = await jwt.verify(accessToken, process.env.SECRET_KEY);
 
-        if (!decoded) {
-            return NextResponse.json(
-                { message: 'Invalid access token' },
-                { status: 401 }
-            );
-        }
+        const decoded = tokenVerification.decoded;
 
         const user = await User.findById(decoded.id);
 
