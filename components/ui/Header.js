@@ -9,6 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import Search from '../filter/Search';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = async ({ locale }) => {
     const dict = await getDictionary(locale);
@@ -16,7 +17,7 @@ const Header = async ({ locale }) => {
     return (
         <header className="py-4 shadow-sm bg-white">
             <div className="container flex items-center justify-between">
-                <Link href="/">
+                <Link href={`/${locale}/`}>
                     <Image
                         src="/assets/images/logo.svg"
                         alt="Logo"
@@ -26,12 +27,12 @@ const Header = async ({ locale }) => {
                     />
                 </Link>
                 <Suspense>
-                    <Search dict={dict} />
+                    <Search dict={dict} locale={locale} />
                 </Suspense>
 
                 <div className="flex items-center space-x-4">
                     <Link
-                        href="/wish-list"
+                        href={`/${locale}/wish-list`}
                         className="text-center text-gray-700 hover:text-primary transition relative"
                     >
                         <div className="text-2xl">
@@ -45,7 +46,7 @@ const Header = async ({ locale }) => {
                         </div>
                     </Link>
                     <Link
-                        href="/checkout"
+                        href={`/${locale}/checkout`}
                         className="text-center text-gray-700 hover:text-primary transition relative"
                     >
                         <div className="text-2xl">
@@ -59,7 +60,7 @@ const Header = async ({ locale }) => {
                         </div>
                     </Link>
                     <Link
-                        href="/account"
+                        href={`/${locale}/account`}
                         className="text-center text-gray-700 hover:text-primary transition relative"
                     >
                         <div className="text-2xl">
@@ -69,6 +70,7 @@ const Header = async ({ locale }) => {
                             {dict.header.account}
                         </div>
                     </Link>
+                    <LanguageSwitcher locale={locale} />
                 </div>
             </div>
         </header>

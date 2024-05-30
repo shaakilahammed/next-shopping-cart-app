@@ -2,7 +2,7 @@ import { getAllCategories } from '@/actions/categories';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const CategoryMenu = async () => {
+const CategoryMenu = async ({ locale }) => {
     const categories = await getAllCategories();
     return (
         <div
@@ -13,7 +13,7 @@ const CategoryMenu = async () => {
                 categories?.map((item) => (
                     <Link
                         key={item?.id}
-                        href={`/shop?categoryId=${item?.id}`}
+                        href={`/${locale}/shop?category=${item?.id}`}
                         className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
                     >
                         <Image

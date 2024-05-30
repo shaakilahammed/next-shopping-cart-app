@@ -15,6 +15,7 @@ const ShopProductList = async ({ q, category, locale, color, min, max }) => {
                             key={product?.id}
                             product={product}
                             cartText={dict.product.addToCart}
+                            locale={locale}
                             noRatingsText={dict.product.noRatings}
                         />
                     ))}

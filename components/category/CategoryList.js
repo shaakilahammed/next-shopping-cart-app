@@ -14,7 +14,11 @@ const CategoryList = async ({ locale }) => {
             {categories?.length > 0 ? (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                     {categories?.map((category) => (
-                        <Category key={category?.id} category={category} />
+                        <Category
+                            key={category?.id}
+                            category={category}
+                            locale={locale}
+                        />
                     ))}
                 </div>
             ) : (

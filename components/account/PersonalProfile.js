@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const PersonalProfile = ({ texts, profile }) => {
+const PersonalProfile = ({ texts, profile, locale }) => {
     return (
         <div className="shadow rounded bg-white px-4 pt-6 pb-8">
             <div className="flex items-center justify-between mb-4">
@@ -8,7 +8,7 @@ const PersonalProfile = ({ texts, profile }) => {
                     {texts.personalProfile}
                 </h3>
                 <Link
-                    href={`/account/edit/${encodeURI('Profile')}`}
+                    href={`/${locale}/account/edit/${encodeURI('Profile')}`}
                     className="text-primary"
                 >
                     {texts.edit}

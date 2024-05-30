@@ -2,10 +2,10 @@
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 
-const SocialLogin = ({ fromLogin = true, texts }) => {
+const SocialLogin = ({ fromLogin = true, texts, locale }) => {
     const handleSocialLogin = async (provider) => {
         try {
-            await signIn(provider, { callbackUrl: '/' });
+            await signIn(provider, { callbackUrl: `/${locale}/` });
         } catch (error) {
             console.log(error);
         }
@@ -35,14 +35,14 @@ const SocialLogin = ({ fromLogin = true, texts }) => {
             {fromLogin ? (
                 <p className="mt-4 text-center text-gray-600">
                     {texts.donotHaveAccount}{' '}
-                    <Link href="/register" className="text-primary">
+                    <Link href={`/${locale}/register`} className="text-primary">
                         {texts.registerNow}
                     </Link>
                 </p>
             ) : (
                 <p className="mt-4 text-center text-gray-600">
                     {texts.haveAccount}{' '}
-                    <Link href="/login" className="text-primary">
+                    <Link href={`/${locale}/login`} className="text-primary">
                         {texts.loginNow}
                     </Link>
                 </p>

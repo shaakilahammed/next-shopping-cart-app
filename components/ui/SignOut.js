@@ -1,10 +1,10 @@
 'use client';
 import { signOut } from 'next-auth/react';
 
-const SignOut = ({ text }) => {
+const SignOut = ({ text, locale }) => {
     return (
         <button
-            onClick={() => signOut({ callbackUrl: '/login' })}
+            onClick={() => signOut({ callbackUrl: `/${locale}/login` })}
             className="text-gray-200 hover:text-white transition"
         >
             {' '}

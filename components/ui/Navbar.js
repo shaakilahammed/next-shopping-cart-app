@@ -19,37 +19,37 @@ const Navbar = async ({ locale }) => {
                     </span>
 
                     {/* <!-- dropdown --> */}
-                    <CategoryMenu />
+                    <CategoryMenu locale={locale} />
                 </div>
 
                 <div className="flex items-center justify-between flex-grow md:pl-12 py-5">
                     <div className="flex items-center space-x-6 capitalize">
                         <Link
-                            href="/"
+                            href={`/${locale}/`}
                             className="text-gray-200 hover:text-white transition"
                         >
                             {dict.navbar.home}
                         </Link>
                         <Link
-                            href="/shop"
+                            href={`/${locale}/shop`}
                             className="text-gray-200 hover:text-white transition"
                         >
                             {dict.navbar.shop}
                         </Link>
                         <Link
-                            href="/about-us"
+                            href={`/${locale}/about-us`}
                             className="text-gray-200 hover:text-white transition"
                         >
                             {dict.navbar.aboutUs}
                         </Link>
                         <Link
-                            href="/contact-us"
+                            href={`/${locale}/contact-us`}
                             className="text-gray-200 hover:text-white transition"
                         >
                             {dict.navbar.contactUs}
                         </Link>
                     </div>
-                    <SignInOut dict={dict} />
+                    <SignInOut dict={dict} locale={locale} />
                 </div>
             </div>
         </nav>

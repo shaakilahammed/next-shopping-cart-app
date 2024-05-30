@@ -3,10 +3,10 @@ import WishProductList from '@/components/product/WishProductList';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { redirect } from 'next/navigation';
 
-const WishListPage = async () => {
+const WishListPage = async ({ locale }) => {
     const session = await auth();
     if (!session) {
-        redirect('/login');
+        redirect(`/${locale}/login`);
     }
     return (
         <>

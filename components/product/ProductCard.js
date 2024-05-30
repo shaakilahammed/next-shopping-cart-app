@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Ratings from '../ratings/Ratings';
 
-const ProductCard = ({ product, cartText, noRatingsText }) => {
+const ProductCard = ({ product, cartText, noRatingsText, locale }) => {
     return (
         <div className="bg-white shadow rounded overflow-hidden group flex flex-col justify-between">
             <div className="relative">
@@ -20,7 +20,7 @@ const ProductCard = ({ product, cartText, noRatingsText }) => {
             justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
                 >
                     <Link
-                        href={`/shop/${product?.id}`}
+                        href={`/${locale}/shop/${product?.id}`}
                         className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
                         title="view product"
                     >
@@ -48,7 +48,7 @@ const ProductCard = ({ product, cartText, noRatingsText }) => {
                     ))}
             </div>
             <div className="pt-4 pb-3 px-4">
-                <Link href={`/shop/${product?.id}`}>
+                <Link href={`/${locale}/shop/${product?.id}`}>
                     <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
                         {product?.name}
                     </h4>

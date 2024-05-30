@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const BillingAddress = ({ texts, address }) => {
+const BillingAddress = ({ texts, address, locale }) => {
     return (
         <div className="shadow rounded bg-white px-4 pt-6 pb-8">
             <div className="flex items-center justify-between mb-4">
@@ -8,7 +8,9 @@ const BillingAddress = ({ texts, address }) => {
                     {texts.billingAddress}
                 </h3>
                 <Link
-                    href={`/account/edit/${encodeURI('Billing Address')}`}
+                    href={`/${locale}/account/edit/${encodeURI(
+                        'Billing Address'
+                    )}`}
                     className="text-primary"
                 >
                     {texts.edit}

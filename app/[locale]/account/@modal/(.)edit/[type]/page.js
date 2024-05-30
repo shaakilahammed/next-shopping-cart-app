@@ -10,7 +10,7 @@ const ShippingAddressModal = async ({ params: { locale, type } }) => {
     const dict = await getDictionary(locale);
     const session = await auth();
     if (!session) {
-        redirect('/login');
+        redirect(`/${locale}/login`);
     }
     const profile = await getMyProfile(session?.tokens?.accessToken);
     const decodedType = decodeURI(type);
@@ -32,6 +32,7 @@ const ShippingAddressModal = async ({ params: { locale, type } }) => {
                             type={decodedType}
                             accessToken={session?.tokens?.accessToken}
                             profile={profile}
+                            locale={locale}
                         />
                     ) : (
                         <AddressForm
@@ -43,6 +44,7 @@ const ShippingAddressModal = async ({ params: { locale, type } }) => {
                                     ? profile?.shippingAddress
                                     : profile?.billingAddress
                             }
+                            locale={locale}
                         />
                     )}
                 </div>

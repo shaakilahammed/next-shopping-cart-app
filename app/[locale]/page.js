@@ -12,7 +12,10 @@ export default function Home({ params: { locale } }) {
             <FeatureList locale={locale} />
             <CategoryList locale={locale} />
             <NewProductList locale={locale} />
-            <ExclusiveOffer imageUrl="/assets/images/offer.jpg" link="#" />
+            <ExclusiveOffer
+                imageUrl="/assets/images/offer.jpg"
+                link={`/${locale}/shop`}
+            />
             <TrendingProductList locale={locale} />
         </>
     );

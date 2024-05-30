@@ -18,6 +18,7 @@ const TrendingProductList = async ({ locale }) => {
                             key={product?.id}
                             product={product}
                             cartText={dict.product.addToCart}
+                            locale={locale}
                             noRatingsText={dict.product.noRatings}
                         />
                     ))}

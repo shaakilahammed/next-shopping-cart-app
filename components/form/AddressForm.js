@@ -4,7 +4,7 @@ import { createAddress, updateAddress } from '@/actions/address';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-const AddressForm = ({ texts, type, address, accessToken }) => {
+const AddressForm = ({ texts, type, address, accessToken, locale }) => {
     const router = useRouter();
     const [pending, setPending] = useState(false);
     const [responseError, setResponseError] = useState('');
@@ -94,7 +94,7 @@ const AddressForm = ({ texts, type, address, accessToken }) => {
 
                     e.target.reset();
                     setResponseError('');
-                    router.replace('/account');
+                    router.replace(`/${locale}/account`);
                 } else {
                     setResponseError(
                         response.message || 'Something went wrong'

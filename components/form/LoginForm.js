@@ -2,7 +2,7 @@
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-const LoginForm = ({ texts }) => {
+const LoginForm = ({ texts, locale }) => {
     const router = useRouter();
     const [pending, setPending] = useState(false);
     const [responseError, setResponseError] = useState('');
@@ -54,7 +54,7 @@ const LoginForm = ({ texts }) => {
                     setResponseError('Invalid credentials');
                     return;
                 } else {
-                    router.push('/');
+                    router.push(`/${locale}/`);
                     // router.refresh();
                 }
             } catch (error) {

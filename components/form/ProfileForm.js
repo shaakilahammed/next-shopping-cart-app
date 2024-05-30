@@ -4,7 +4,7 @@ import { updateMyProfile } from '@/actions/auth';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-const ProfileForm = ({ texts, profile, accessToken }) => {
+const ProfileForm = ({ texts, profile, accessToken, locale }) => {
     const router = useRouter();
     const [pending, setPending] = useState(false);
     const [responseError, setResponseError] = useState('');
@@ -98,7 +98,7 @@ const ProfileForm = ({ texts, profile, accessToken }) => {
 
                     e.target.reset();
                     setResponseError('');
-                    router.replace('/account');
+                    router.replace(`/${locale}/account`);
                 } else {
                     setResponseError(
                         response.message || 'Something went wrong'

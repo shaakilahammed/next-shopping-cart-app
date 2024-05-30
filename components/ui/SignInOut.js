@@ -3,7 +3,7 @@ import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import SignOut from './SignOut';
 
-const SignInOut = ({ dict }) => {
+const SignInOut = ({ dict, locale }) => {
     // const session = await auth();
     const { data: session } = useSession();
     // console.log(session);
@@ -12,18 +12,18 @@ const SignInOut = ({ dict }) => {
             <div className="text-gray-200">
                 {dict.navbar.welcome},{' '}
                 <Link
-                    href="/account"
+                    href={`/${locale}/account`}
                     className="text-gray-200 hover:text-white transition"
                 >
                     {session?.user?.name}
                 </Link>{' '}
                 |{' '}
             </div>
-            <SignOut text={dict.navbar.logout} />
+            <SignOut text={dict.navbar.logout} locale={locale} />
         </div>
     ) : (
         <Link
-            href="/login"
+            href={`/${locale}/login`}
             className="text-gray-200 hover:text-white transition"
         >
             {dict.navbar.login}

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
-const Search = ({ dict }) => {
+const Search = ({ dict, locale }) => {
     const [query, setQuery] = useState('');
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -23,7 +23,7 @@ const Search = ({ dict }) => {
         if (pathname.includes('shop')) {
             router.replace(`${pathname}?${params.toString()}`);
         } else {
-            router.replace(`/shop?${params.toString()}`);
+            router.replace(`/${locale}/shop?${params.toString()}`);
         }
     };
 

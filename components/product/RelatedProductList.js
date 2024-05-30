@@ -18,6 +18,7 @@ const RelatedProductList = async ({ locale, productId }) => {
                             key={product?.id}
                             cartText={dict.product.addToCart}
                             noRatingsText={dict.product.noRatings}
+                            locale={locale}
                             product={product}
                         />
                     ))}

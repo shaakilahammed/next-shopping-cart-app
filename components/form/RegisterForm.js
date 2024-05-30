@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-const RegisterForm = ({ texts }) => {
+const RegisterForm = ({ texts, locale }) => {
     const router = useRouter();
     const [pending, setPending] = useState(false);
     const [responseError, setResponseError] = useState('');
@@ -77,7 +77,7 @@ const RegisterForm = ({ texts }) => {
                     setPending(false);
                     e.target.reset();
                     setResponseError('');
-                    router.push('/login');
+                    router.push(`/${locale}/login`);
                 } else {
                     const errorData = await response.json();
                     setResponseError(errorData.message);

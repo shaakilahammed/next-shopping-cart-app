@@ -16,7 +16,7 @@ const Banner = async ({ locale }) => {
                     <p>{dict.banner.description}</p>
                     <div className="mt-12">
                         <Link
-                            href="/shop"
+                            href={`/${locale}/shop`}
                             className="bg-primary border border-primary text-white px-8 py-3 font-medium 
                 rounded-md hover:bg-transparent hover:text-primary"
                         >

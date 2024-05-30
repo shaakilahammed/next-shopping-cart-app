@@ -19,6 +19,7 @@ const NewProductList = async ({ locale }) => {
                             cartText={dict.product.addToCart}
                             noRatingsText={dict.product.noRatings}
                             product={product}
+                            locale={locale}
                         />
                     ))}
                 </div>

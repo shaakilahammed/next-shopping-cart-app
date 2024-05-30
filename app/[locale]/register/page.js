@@ -14,9 +14,13 @@ const RegisterPage = async ({ params: { locale } }) => {
                 <p className="text-gray-600 mb-6 text-sm">
                     {dict.register.message}
                 </p>
-                <RegisterForm texts={dict.register} />
+                <RegisterForm texts={dict.register} locale={locale} />
 
-                <SocialLogin fromLogin={false} texts={dict.socialLogin} />
+                <SocialLogin
+                    fromLogin={false}
+                    texts={dict.socialLogin}
+                    locale={locale}
+                />
             </div>
         </div>
     );

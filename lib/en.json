@@ -108,7 +108,7 @@
         "noAddress": "No address added yet",
         "address": {
             "fullName": "Full Name",
-            "phoneNumber": "Checkout",
+            "phoneNumber": "Phone Number",
             "emailAddress": "Email Address",
             "streetAddress": "Street Address",
             "city": "City",
@@ -123,7 +123,7 @@
     "checkout": {
         "checkout": "Checkout",
         "fullName": "Full Name",
-        "phoneNumber": "Checkout",
+        "phoneNumber": "Phone Number",
         "emailAddress": "Email Address",
         "streetAddress": "Street Address",
         "city": "City",
