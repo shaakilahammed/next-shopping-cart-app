@@ -16,7 +16,7 @@ const WishProductList = async ({ locale, accessToken }) => {
                     />
                 ))
             ) : (
-                <div className="flex flex-col justify-center items-center">
+                <div className="flex flex-col justify-center items-center my-10">
                     <FontAwesomeIcon icon={faHeart} className="text-[48px]" />
                     <span>Wishlist is empty! Please add some product.</span>
                 </div>

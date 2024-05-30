@@ -1,8 +1,9 @@
-import { faHeart, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
 import Ratings from '../ratings/Ratings';
+import AddWishlistButton from './AddWishlistButton';
 
 const ProductCard = ({ product, cartText, noRatingsText, locale }) => {
     return (
@@ -26,13 +27,11 @@ const ProductCard = ({ product, cartText, noRatingsText, locale }) => {
                     >
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Link>
-                    <Link
-                        href="#"
-                        className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                        title="add to wishlist"
-                    >
-                        <FontAwesomeIcon icon={faHeart} />
-                    </Link>
+                    <AddWishlistButton
+                        locale={locale}
+                        productId={product?.id}
+                        color={product?.colors[0]}
+                    />
                 </div>
             </div>
             <div>
@@ -40,7 +39,7 @@ const ProductCard = ({ product, cartText, noRatingsText, locale }) => {
                     product?.colors?.length > 0 &&
                     product?.colors?.map((color) => (
                         <span
-                            key={color?.id}
+                            key={color?._id}
                             className="text-[10px] border border-primary rounded-sm px-1 py-0.5 shadow-sm text-primary mx-1"
                         >
                             {color.name}

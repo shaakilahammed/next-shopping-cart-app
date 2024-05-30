@@ -4,9 +4,8 @@ import Link from 'next/link';
 import SignOut from './SignOut';
 
 const SignInOut = ({ dict, locale }) => {
-    // const session = await auth();
     const { data: session } = useSession();
-    // console.log(session);
+
     return session && session?.user ? (
         <div className="flex">
             <div className="text-gray-200">
