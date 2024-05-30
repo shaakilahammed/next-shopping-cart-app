@@ -16,6 +16,15 @@ const CartSchema = new mongoose.Schema(
             required: true,
             type: Number,
         },
+        colorId: {
+            required: true,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Color',
+        },
+        expiresAt: {
+            type: Date,
+            required: true,
+        },
     },
     { timestamps: true }
 );

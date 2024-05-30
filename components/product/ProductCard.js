@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
 import Ratings from '../ratings/Ratings';
+import AddToCartButton from './AddToCartButton';
 import AddWishlistButton from './AddWishlistButton';
 
 const ProductCard = ({ product, cartText, noRatingsText, locale }) => {
@@ -66,12 +67,13 @@ const ProductCard = ({ product, cartText, noRatingsText, locale }) => {
                     noRatingsText={noRatingsText}
                 />
             </div>
-            <Link
-                href="#"
-                className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-            >
-                {cartText}
-            </Link>
+            <AddToCartButton
+                cartText={cartText}
+                locale={locale}
+                productId={product?.id}
+                colorId={product?.colors[0]._id}
+                quantity={1}
+            />
         </div>
     );
 };
