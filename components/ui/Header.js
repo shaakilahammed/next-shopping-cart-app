@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import Search from '../filter/Search';
 import LanguageSwitcher from './LanguageSwitcher';
-import WishListButton from './WishListButton';
 
 const Header = async ({ locale }) => {
     const dict = await getDictionary(locale);
@@ -28,10 +27,10 @@ const Header = async ({ locale }) => {
                 </Suspense>
 
                 <div className="flex items-center space-x-4">
-                    <WishListButton
+                    {/* <WishListButton
                         locale={locale}
                         text={dict.header.wishlist}
-                    />
+                    /> */}
                     <Link
                         href={`/${locale}/checkout`}
                         className="text-center text-gray-700 hover:text-primary transition relative"
