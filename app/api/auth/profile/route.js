@@ -1,8 +1,8 @@
 import connectMongo from '@/dbConnect/connectMongo';
 import Address from '@/models/Address';
 import User from '@/models/User';
+import verifyToken from '@/utils/verifyToken';
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
 
 import { NextResponse } from 'next/server';
 
@@ -10,23 +10,16 @@ export const GET = async (req) => {
     try {
         await connectMongo();
 
-        const accessToken = req.headers.get('authorization')?.split(' ')[1];
+        const tokenVerification = await verifyToken(req);
 
-        if (!accessToken) {
+        if (!tokenVerification.success) {
             return NextResponse.json(
-                { message: 'Access token required' },
+                { success: false, message: tokenVerification?.message },
                 { status: 401 }
             );
         }
 
-        const decoded = await jwt.verify(accessToken, process.env.SECRET_KEY);
-
-        if (!decoded) {
-            return NextResponse.json(
-                { message: 'Invalid access token' },
-                { status: 401 }
-            );
-        }
+        const decoded = tokenVerification.decoded;
 
         const user = await User.findById(decoded.id)
             .populate('shippingAddress', null, Address)
@@ -55,21 +48,16 @@ export const GET = async (req) => {
 export const PUT = async (req) => {
     try {
         await connectMongo();
-        const accessToken = req.headers.get('authorization')?.split(' ')[1];
-        if (!accessToken) {
-            return NextResponse.json(
-                { message: 'Access token required' },
-                { status: 401 }
-            );
-        }
-        const decoded = await jwt.verify(accessToken, process.env.SECRET_KEY);
+        const tokenVerification = await verifyToken(req);
 
-        if (!decoded) {
+        if (!tokenVerification.success) {
             return NextResponse.json(
-                { message: 'Invalid access token' },
+                { success: false, message: tokenVerification?.message },
                 { status: 401 }
             );
         }
+
+        const decoded = tokenVerification.decoded;
 
         const user = await User.findById(decoded.id);
 
@@ -80,10 +68,8 @@ export const PUT = async (req) => {
             );
         }
 
-        // Extract updated user data from request body
         const request = await req.json();
 
-        // Update user details
         user.name = request?.name || user.name;
         user.email = request?.email || user.email;
         user.phone = request?.phone || user.phone;
@@ -91,20 +77,17 @@ export const PUT = async (req) => {
         user.password =
             (request?.password && (await bcrypt.hash(request.password, 10))) ||
             user.password;
-        // Update user's shipping address if provided
+
         if (request?.shippingAddress) {
             user.shippingAddress = request.shippingAddress;
         }
 
-        // Update user's billing address if provided
         if (request?.billingAddress) {
             user.billingAddress = request.billingAddress;
         }
 
-        // Save updated user details
         await user.save();
 
-        // Return updated user details
         return NextResponse.json(
             { success: true, data: user.toObject() },
             { status: 200 }

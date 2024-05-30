@@ -91,7 +91,7 @@ const AddressForm = ({ texts, type, address, accessToken, locale }) => {
 
                     e.target.reset();
                     setResponseError('');
-                    router.replace(`/${locale}/account`);
+                    router.push(`/${locale}/account`);
                 }
             } catch (error) {
                 setPending(false);

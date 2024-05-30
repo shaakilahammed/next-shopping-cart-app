@@ -1,6 +1,6 @@
 'use server';
 
-import { signIn } from '@/auth';
+import { signIn, signOut } from '@/auth';
 import { getBaseUrl, replaceMongoIdInObject } from '@/utils/utils';
 
 export const login = async (input) => {
@@ -25,11 +25,16 @@ export const getMyProfile = async (accessToken) => {
             },
         });
         const data = await response.json();
+
         if (response.ok) {
             return replaceMongoIdInObject(data?.data);
+        } else if (response.status === 401) {
+            await signOut({ callbackUrl: `/login` });
+        } else {
+            throw new Error(data.message || 'Failed to update address');
         }
     } catch (error) {
-        console.log(error);
+        throw new Error(error);
     }
 };
 
@@ -38,15 +43,21 @@ export const updateMyProfile = async (accessToken, toUpdate) => {
         const response = await fetch(`${getBaseUrl()}/api/auth/profile`, {
             method: 'PUT',
             headers: {
+                'Content-Type': 'application/json',
                 Authorization: `Bearer ${accessToken}`,
             },
             body: JSON.stringify(toUpdate),
         });
         const data = await response.json();
+
         if (response.ok) {
             return data;
+        } else if (response.status === 401) {
+            await signOut({ callbackUrl: `/login` });
+        } else {
+            throw new Error(data.message || 'Failed to update address');
         }
     } catch (error) {
-        console.log(error);
+        throw new Error(error);
     }
 };

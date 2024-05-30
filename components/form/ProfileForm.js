@@ -78,8 +78,6 @@ const ProfileForm = ({ texts, profile, accessToken, locale }) => {
                 confirm: '',
             });
 
-            // console.log(JSON.stringify(input));
-
             try {
                 setPending(true);
                 setSuccess('');
@@ -90,7 +88,6 @@ const ProfileForm = ({ texts, profile, accessToken, locale }) => {
                     phone: input.phone,
                     password: input.password,
                 });
-                console.log(response);
 
                 if (response.success) {
                     setPending(false);
@@ -98,7 +95,7 @@ const ProfileForm = ({ texts, profile, accessToken, locale }) => {
 
                     e.target.reset();
                     setResponseError('');
-                    router.replace(`/${locale}/account`);
+                    router.push(`/${locale}/account`);
                 } else {
                     setResponseError(
                         response.message || 'Something went wrong'
