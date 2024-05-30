@@ -1,11 +1,16 @@
 import connectMongo from '@/dbConnect/connectMongo';
 import Address from '@/models/Address';
+import verifyToken from '@/utils/verifyToken';
 import { NextResponse } from 'next/server';
 
 // POST endpoint to create a new address
 export const POST = async (req) => {
     try {
         await connectMongo();
+        const tokenVerification = await verifyToken(req);
+        if (!tokenVerification.success) {
+            return tokenVerification;
+        }
         const { name, email, phone, street, city, country } = await req.json();
 
         if (!name || !phone || !street || !city || !country) {
@@ -43,6 +48,10 @@ export const POST = async (req) => {
 export const PUT = async (req) => {
     try {
         await connectMongo();
+        const tokenVerification = await verifyToken(req);
+        if (!tokenVerification.success) {
+            return tokenVerification;
+        }
         const {
             id,
             name,

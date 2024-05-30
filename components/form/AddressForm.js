@@ -85,7 +85,7 @@ const AddressForm = ({ texts, type, address, accessToken, locale }) => {
                 setSuccess('');
 
                 const response = address
-                    ? await updateAddress(input.id, input)
+                    ? await updateAddress(input.id, input, accessToken)
                     : await createAddress(type, input, accessToken);
 
                 if (response.success) {
