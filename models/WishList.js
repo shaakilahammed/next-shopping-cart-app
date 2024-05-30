@@ -12,6 +12,11 @@ const WishListSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Product',
         },
+        colorId: {
+            required: true,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Color',
+        },
     },
     { timestamps: true }
 );
