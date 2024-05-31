@@ -1,5 +1,5 @@
 'use client';
-import { getBaseUrl } from '@/utils/utils';
+import { getLiveUrl } from '@/utils/utils';
 import {
     FacebookIcon,
     FacebookMessengerIcon,
@@ -14,6 +14,7 @@ import {
 } from 'next-share';
 
 const SocialShare = ({ productId }) => {
+    console.log(process.env.NEXT_PUBLIC_FACEBOOK_APP_ID);
     return (
         <div className="flex gap-3 mt-4">
             {/* <Link
@@ -34,7 +35,9 @@ const SocialShare = ({ productId }) => {
             >
                 <FontAwesomeIcon icon={faInstagram} />
             </Link> */}
-            <FacebookShareButton url={`${getBaseUrl()}/details/${productId}`}>
+            <FacebookShareButton
+                url={`${getLiveUrl()}/shop/${productId}?color=664f12f46da3668c1944a255&quantity=1`}
+            >
                 <FacebookIcon
                     className="hover:scale-110 transition-all"
                     size={24}
@@ -43,7 +46,7 @@ const SocialShare = ({ productId }) => {
             </FacebookShareButton>
 
             <FacebookMessengerShareButton
-                url={`${getBaseUrl()}/shop/${productId}`}
+                url={`${getLiveUrl()}/shop/${productId}?color=664f12f46da3668c1944a255&quantity=1`}
                 appId={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID}
             >
                 <FacebookMessengerIcon
@@ -53,7 +56,7 @@ const SocialShare = ({ productId }) => {
                 />
             </FacebookMessengerShareButton>
 
-            <WhatsappShareButton url={`${getBaseUrl()}/shop/${productId}`}>
+            <WhatsappShareButton url={`${getLiveUrl()}/shop/${productId}`}>
                 <WhatsappIcon
                     className="hover:scale-110 transition-all"
                     size={24}
@@ -61,7 +64,7 @@ const SocialShare = ({ productId }) => {
                 />
             </WhatsappShareButton>
 
-            <TwitterShareButton url={`${getBaseUrl()}/shop/${productId}`}>
+            <TwitterShareButton url={`${getLiveUrl()}/shop/${productId}`}>
                 <TwitterIcon
                     className="hover:scale-110 transition-all"
                     size={24}
@@ -69,7 +72,7 @@ const SocialShare = ({ productId }) => {
                 />
             </TwitterShareButton>
 
-            <PinterestShareButton url={`${getBaseUrl()}/shop/${productId}`}>
+            <PinterestShareButton url={`${getLiveUrl()}/shop/${productId}`}>
                 <PinterestIcon
                     className="hover:scale-110 transition-all"
                     size={24}

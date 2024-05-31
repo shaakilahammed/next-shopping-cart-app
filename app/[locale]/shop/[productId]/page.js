@@ -5,6 +5,7 @@ import ProductDetails from '@/components/product/details/ProductDetails';
 import ProductInfo from '@/components/product/details/ProductInfo';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { getDictionary } from '@/lib/dictionaries';
+import { notFound } from 'next/navigation';
 
 export const generateMetadata = async ({ params: { productId } }) => {
     const product = await getProductbyId(productId);
@@ -12,7 +13,14 @@ export const generateMetadata = async ({ params: { productId } }) => {
         title: `LWSkart - ${product?.name}`,
         description: product?.description,
         openGraph: {
-            images: [product?.images[0]],
+            images: [
+                {
+                    type: 'image/png',
+                    width: 800,
+                    height: 600,
+                    url: product?.images[0],
+                },
+            ],
         },
     };
 };
@@ -22,6 +30,7 @@ const ProductDetailsPage = async ({
     params: { productId, locale },
 }) => {
     const product = await getProductbyId(productId);
+    if (!product) notFound();
     const dict = await getDictionary(locale);
     return (
         <>

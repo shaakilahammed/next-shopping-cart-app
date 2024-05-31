@@ -3,7 +3,9 @@ import FilterDrawer from '@/components/filter/FilterDrawer';
 import ShopProductList from '@/components/product/ShopProductList';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { refinedURI } from '@/utils/utils';
-
+export const metadata = {
+    title: 'LWSkart - Shop',
+};
 const ShopPage = ({
     params: { locale },
     searchParams: { q, category, color, min, max },

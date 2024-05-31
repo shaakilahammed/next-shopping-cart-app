@@ -6,7 +6,9 @@ import ShippingAddress from '@/components/account/ShippingAddress';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { getDictionary } from '@/lib/dictionaries';
 import { redirect } from 'next/navigation';
-
+export const metadata = {
+    title: 'LWSkart - Account',
+};
 const AccountPage = async ({ params: { locale } }) => {
     const dict = await getDictionary(locale);
 

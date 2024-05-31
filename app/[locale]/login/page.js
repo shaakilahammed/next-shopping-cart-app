@@ -3,7 +3,9 @@ import LoginForm from '@/components/form/LoginForm';
 import SocialLogin from '@/components/form/SocialLogin';
 import { getDictionary } from '@/lib/dictionaries';
 import { redirect } from 'next/navigation';
-
+export const metadata = {
+    title: 'LWSkart - Login',
+};
 const LoginPage = async ({ params: { locale } }) => {
     const session = await auth();
     if (session) {

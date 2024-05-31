@@ -22,6 +22,10 @@ export const getBaseUrl = () => {
     }
 };
 
+export const getLiveUrl = () => {
+    return 'https://next-shopping-cart-app.vercel.app';
+};
+
 export const getAverageRating = (ratings = []) => {
     if (ratings?.length === 0) {
         return 0;
