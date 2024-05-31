@@ -1,8 +1,8 @@
 import { auth } from '@/auth';
 import { getDictionary } from '@/lib/dictionaries';
 import Image from 'next/image';
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
+import AddToCartButton from './AddToCartButton';
 import DeleteWishlistButton from './DeleteWishlistButton';
 
 const ProductItem = async ({ locale, product }) => {
@@ -49,12 +49,20 @@ const ProductItem = async ({ locale, product }) => {
             <div className="text-primary text-lg font-semibold">
                 ${product?.productId?.discountPrice}
             </div>
-            <Link
+            <AddToCartButton
+                cartText={dict.productDetails.addToCart}
+                locale={locale}
+                productId={product?.productId?._id}
+                colorId={product?.colorId?._id}
+                quantity={1}
+                fromWishList={true}
+            />
+            {/* <Link
                 href="#"
                 className="px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
             >
                 {dict.productDetails.addToCart}
-            </Link>
+            </Link> */}
 
             <DeleteWishlistButton
                 accessToken={session?.tokens?.accessToken}

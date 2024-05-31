@@ -4,7 +4,8 @@ import { faEquals, faMultiply } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
-import DeleteWishlistButton from '../DeleteWishlistButton';
+import CartProductDelete from './CartProductDelete';
+import ProductQuantity from './ProductQuantity';
 
 const CartProductItem = async ({ locale, product }) => {
     const dict = await getDictionary(locale);
@@ -40,25 +41,22 @@ const CartProductItem = async ({ locale, product }) => {
                 ${product?.productId?.discountPrice}
             </div>
             <FontAwesomeIcon icon={faMultiply} />
-            <div className="flex border border-gray-300 text-gray-600 divide-x divide-gray-300 w-max">
-                <div className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">
-                    -
-                </div>
-                <div className="h-8 w-8 text-base flex items-center justify-center">
-                    {product?.quantity}
-                </div>
-                <div className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">
-                    +
-                </div>
-            </div>
+            <ProductQuantity
+                productId={product?.productId?._id}
+                initialQuantity={product?.quantity}
+                initialProductStock={product?.productId?.stock}
+                colorId={product?.colorId?._id}
+            />
             <FontAwesomeIcon icon={faEquals} />
 
             <div className="text-green-500 text-lg font-semibold">
-                ${product?.productId?.discountPrice * product?.quantity}
+                $
+                {(
+                    product?.productId?.discountPrice * product?.quantity
+                ).toFixed(2)}
             </div>
 
-            <DeleteWishlistButton
-                accessToken={session?.tokens?.accessToken}
+            <CartProductDelete
                 productId={product?.productId?._id}
                 colorId={product?.colorId?._id}
             />

@@ -135,7 +135,8 @@
         "total": "Total",
         "aggrement": "I have read and agree to the ",
         "termsConditions": "terms & conditions",
-        "placeOrder": "Place order"
+        "placeOrder": "Place order",
+        "procced": "Proceed to checkout"
     },
     "footer": {
         "tagline": "Best collection for home decoration",

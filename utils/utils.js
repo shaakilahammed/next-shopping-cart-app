@@ -104,3 +104,15 @@ export const convertDurationToMilliseconds = (duration) => {
             throw new Error('Invalid time unit');
     }
 };
+
+export const calculateTotalAmount = (cartItems) => {
+    let totalAmount = 0;
+
+    cartItems.forEach((item) => {
+        const price = item.productId.discountPrice;
+        const quantity = item.quantity;
+        totalAmount += price * quantity;
+    });
+
+    return totalAmount;
+};
