@@ -2,7 +2,7 @@
 
 import { updateCartItemQuantity } from '@/actions/cart';
 import { useSession } from 'next-auth/react';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const ProductQuantity = ({
@@ -15,9 +15,7 @@ const ProductQuantity = ({
     const [quantity, setQuantity] = useState(initialQuantity);
     const [stock, setStock] = useState(initialProductStock);
     const { data: session } = useSession();
-    if (!session) {
-        redirect(`/login`);
-    }
+
     const accessToken = session?.tokens?.accessToken;
 
     const handleQuantity = async (action) => {

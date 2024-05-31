@@ -10,6 +10,7 @@ const ProductItem = async ({ locale, product }) => {
     const session = await auth();
     if (!session) {
         redirect(`/${locale}/login`);
+        return null;
     }
     return (
         <div className="flex items-center justify-between border gap-6 p-4 border-gray-200 rounded">
