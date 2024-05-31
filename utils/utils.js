@@ -120,3 +120,17 @@ export const calculateTotalAmount = (cartItems) => {
 
     return totalAmount;
 };
+
+export const formatReadableDate = (isoDateString) => {
+    const date = new Date(isoDateString);
+    return date.toLocaleString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        timeZoneName: 'short',
+    });
+};

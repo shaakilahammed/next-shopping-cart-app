@@ -1,6 +1,7 @@
 import { getMyProfile } from '@/actions/auth';
 import { auth } from '@/auth';
 import BillingAddress from '@/components/account/BillingAddress';
+import Orders from '@/components/account/Orders';
 import PersonalProfile from '@/components/account/PersonalProfile';
 import ShippingAddress from '@/components/account/ShippingAddress';
 import Breadcrumb from '@/components/ui/Breadcrumb';
@@ -44,6 +45,7 @@ const AccountPage = async ({ params: { locale } }) => {
                     />
                 </div>
             </div>
+            <Orders />
         </>
     );
 };

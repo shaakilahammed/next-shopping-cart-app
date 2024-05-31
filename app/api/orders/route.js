@@ -88,3 +88,37 @@ export const POST = async (req) => {
         );
     }
 };
+
+export const GET = async (req) => {
+    try {
+        await connectMongo();
+
+        const tokenVerification = await verifyToken(req);
+
+        if (!tokenVerification.success) {
+            return NextResponse.json(
+                { success: false, message: tokenVerification?.message },
+                { status: 401 }
+            );
+        }
+
+        const userId = tokenVerification.decoded.id;
+
+        const orders = await Order.find({ userId })
+            .sort({ createdAt: -1 })
+            .lean();
+
+        return NextResponse.json(
+            {
+                success: true,
+                data: orders,
+            },
+            { status: 200 }
+        );
+    } catch (error) {
+        return NextResponse.json(
+            { success: false, message: 'Something went wrong' },
+            { status: 500 }
+        );
+    }
+};
