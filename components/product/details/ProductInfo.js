@@ -5,12 +5,13 @@ import {
     faInstagram,
     faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
-import { faBagShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import AddWishList from './AddWishList';
 import ProductColor from './ProductColor';
 
-const ProductInfo = ({ product, texts }) => {
+const ProductInfo = ({ product, texts, locale, color }) => {
     return (
         <div>
             <h2 className="text-3xl font-medium uppercase mb-2">
@@ -91,12 +92,12 @@ const ProductInfo = ({ product, texts }) => {
                 >
                     <FontAwesomeIcon icon={faBagShopping} /> {texts.addToCart}
                 </Link>
-                <Link
-                    href="#"
-                    className="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:text-primary transition"
-                >
-                    <FontAwesomeIcon icon={faHeart} /> {texts.addToWishlist}
-                </Link>
+                <AddWishList
+                    text={texts.addToWishlist}
+                    locale={locale}
+                    productId={product?.id}
+                    color={color}
+                />
             </div>
 
             <div className="flex gap-3 mt-4">

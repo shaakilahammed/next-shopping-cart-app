@@ -6,7 +6,10 @@ import ProductInfo from '@/components/product/details/ProductInfo';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { getDictionary } from '@/lib/dictionaries';
 
-const ProductDetailsPage = async ({ params: { productId, locale } }) => {
+const ProductDetailsPage = async ({
+    searchParams: { color },
+    params: { productId, locale },
+}) => {
     const product = await getProductbyId(productId);
     const dict = await getDictionary(locale);
     return (
@@ -16,7 +19,12 @@ const ProductDetailsPage = async ({ params: { productId, locale } }) => {
             </Breadcrumb>
             <div className="container grid grid-cols-2 gap-6">
                 <ImageGallery images={product?.images} />
-                <ProductInfo product={product} texts={dict.productDetails} />
+                <ProductInfo
+                    product={product}
+                    texts={dict.productDetails}
+                    locale={locale}
+                    color={color}
+                />
             </div>
             <ProductDetails
                 description={product?.description}

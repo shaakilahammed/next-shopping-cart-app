@@ -1,24 +1,39 @@
 'use client';
 
-import { useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
 
 const ProductColor = ({ colors, colorText }) => {
-    const [selectedColor, setSelectedColor] = useState(
-        colors?.length > 0 && colors[0].id
-    );
-    // const handleChange = (e) => {
-    //     e.preventDefault();
-    //     const value = e.target.value;
-    //     console.log(value);
-    //     setSelectedColor(value);
-    // };
-    // console.log(selectedColor);
+    const [selectedColor, setSelectedColor] = useState('');
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
+    const router = useRouter();
 
-    // useEffect(() => {
-    //     if (colors.length > 0) {
-    //         setSelectedColor(colors[0]);
-    //     }
-    // }, [colors]);
+    const params = useMemo(() => new URLSearchParams(searchParams), [
+        searchParams,
+    ]);
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        const value = e.target.value;
+        setSelectedColor(value);
+    };
+    useEffect(() => {
+        const color = params.get('color');
+        if (color) {
+            const decodedColor = decodeURI(color);
+            setSelectedColor(decodedColor);
+        }
+    }, [params]);
+
+    useEffect(() => {
+        if (selectedColor) {
+            params.set('color', encodeURI(selectedColor));
+        } else {
+            params.delete('color');
+        }
+        router.replace(`${pathname}?${params.toString()}`);
+    }, [pathname, selectedColor, router, params]);
     return (
         <div className="mt-4">
             <h3 className="text-sm text-gray-800 uppercase mb-0.5">
@@ -35,7 +50,7 @@ const ProductColor = ({ colors, colorText }) => {
                             name="colors"
                             id={color?.id}
                             value={color?.id}
-                            onChange={() => setSelectedColor(color?.id)}
+                            onChange={handleChange}
                             checked={selectedColor === color.id}
                             className="hidden"
                         />
