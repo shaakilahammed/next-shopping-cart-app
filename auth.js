@@ -12,6 +12,7 @@ export const {
     signOut,
 } = NextAuth({
     trustHost: true,
+    trustHostDomain: true,
     session: {
         strategy: 'jwt',
     },
