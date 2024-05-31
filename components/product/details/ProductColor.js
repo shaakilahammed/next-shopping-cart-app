@@ -23,17 +23,19 @@ const ProductColor = ({ colors, colorText }) => {
         if (color) {
             const decodedColor = decodeURI(color);
             setSelectedColor(decodedColor);
+        } else {
+            setSelectedColor(colors[0]?.id);
         }
-    }, [params]);
+    }, [colors, params]);
 
     useEffect(() => {
         if (selectedColor) {
             params.set('color', encodeURI(selectedColor));
         } else {
-            params.delete('color');
+            params.set('color', colors[0]?.id);
         }
         router.replace(`${pathname}?${params.toString()}`);
-    }, [pathname, selectedColor, router, params]);
+    }, [pathname, selectedColor, router, params, colors]);
     return (
         <div className="mt-4">
             <h3 className="text-sm text-gray-800 uppercase mb-0.5">

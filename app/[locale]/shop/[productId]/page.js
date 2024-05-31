@@ -7,7 +7,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import { getDictionary } from '@/lib/dictionaries';
 
 const ProductDetailsPage = async ({
-    searchParams: { color },
+    searchParams: { color, quantity },
     params: { productId, locale },
 }) => {
     const product = await getProductbyId(productId);
@@ -24,6 +24,7 @@ const ProductDetailsPage = async ({
                     texts={dict.productDetails}
                     locale={locale}
                     color={color}
+                    quantity={quantity}
                 />
             </div>
             <ProductDetails

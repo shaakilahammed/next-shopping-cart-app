@@ -5,13 +5,15 @@ import {
     faInstagram,
     faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
-import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import OutOfStock from '../OutOfStock';
+import AddCart from './AddCart';
 import AddWishList from './AddWishList';
+import CartQuantity from './CartQuantity';
 import ProductColor from './ProductColor';
 
-const ProductInfo = ({ product, texts, locale, color }) => {
+const ProductInfo = ({ product, texts, locale, color, quantity }) => {
     return (
         <div>
             <h2 className="text-3xl font-medium uppercase mb-2">
@@ -64,34 +66,29 @@ const ProductInfo = ({ product, texts, locale, color }) => {
                 {product?.note}
             </p>
 
-            <div className="mt-4">
-                <h3 className="text-sm text-gray-800 uppercase mb-1">
-                    {texts.quantity}
-                </h3>
-                <div className="flex border border-gray-300 text-gray-600 divide-x divide-gray-300 w-max">
-                    <div className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">
-                        -
-                    </div>
-                    <div className="h-8 w-8 text-base flex items-center justify-center">
-                        1
-                    </div>
-                    <div className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">
-                        +
-                    </div>
-                </div>
-            </div>
+            <CartQuantity
+                text={texts.quantity}
+                initialQuantity={quantity}
+                initialProductStock={product?.stock}
+            />
             <ProductColor
                 colors={replaceMongoIdInArray(product?.colors)}
                 colorText={texts.color}
             />
 
             <div className="mt-6 flex gap-3 border-b border-gray-200 pb-5 pt-5">
-                <Link
-                    href="#"
-                    className="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:bg-transparent hover:text-primary transition"
-                >
-                    <FontAwesomeIcon icon={faBagShopping} /> {texts.addToCart}
-                </Link>
+                {product?.stock > 0 ? (
+                    <AddCart
+                        text={texts.addToCart}
+                        locale={locale}
+                        productId={product?.id}
+                        colorId={color}
+                        quantity={quantity}
+                    />
+                ) : (
+                    <OutOfStock locale={locale} fromWishList={true} />
+                )}
+
                 <AddWishList
                     text={texts.addToWishlist}
                     locale={locale}
