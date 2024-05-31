@@ -1,17 +1,11 @@
 import Ratings from '@/components/ratings/Ratings';
 import { replaceMongoIdInArray } from '@/utils/utils';
-import {
-    faFacebookF,
-    faInstagram,
-    faTwitter,
-} from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Link from 'next/link';
 import OutOfStock from '../OutOfStock';
 import AddCart from './AddCart';
 import AddWishList from './AddWishList';
 import CartQuantity from './CartQuantity';
 import ProductColor from './ProductColor';
+import SocialShare from './SocialShare';
 
 const ProductInfo = ({ product, texts, locale, color, quantity }) => {
     return (
@@ -97,26 +91,7 @@ const ProductInfo = ({ product, texts, locale, color, quantity }) => {
                 />
             </div>
 
-            <div className="flex gap-3 mt-4">
-                <Link
-                    href="#"
-                    className="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center"
-                >
-                    <FontAwesomeIcon icon={faFacebookF} />
-                </Link>
-                <Link
-                    href="#"
-                    className="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center"
-                >
-                    <FontAwesomeIcon icon={faTwitter} />
-                </Link>
-                <Link
-                    href="#"
-                    className="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center"
-                >
-                    <FontAwesomeIcon icon={faInstagram} />
-                </Link>
-            </div>
+            <SocialShare productId={product?.id} />
         </div>
     );
 };

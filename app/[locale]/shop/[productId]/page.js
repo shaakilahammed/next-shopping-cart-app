@@ -6,6 +6,17 @@ import ProductInfo from '@/components/product/details/ProductInfo';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { getDictionary } from '@/lib/dictionaries';
 
+export const generateMetadata = async ({ params: { productId } }) => {
+    const product = await getProductbyId(productId);
+    return {
+        title: `LWSkart - ${product?.name}`,
+        description: product?.description,
+        openGraph: {
+            images: [product?.images[0]],
+        },
+    };
+};
+
 const ProductDetailsPage = async ({
     searchParams: { color, quantity },
     params: { productId, locale },
