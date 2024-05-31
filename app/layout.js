@@ -1,3 +1,4 @@
+import { removeExpiredCartItems } from '@/actions/cart';
 import { auth } from '@/auth';
 import AuthProvider from '@/providers/AuthProvider';
 import { config } from '@fortawesome/fontawesome-svg-core';
@@ -15,6 +16,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
     const session = await auth();
+    await removeExpiredCartItems();
     return (
         <html lang="en">
             <body className={inter.className}>

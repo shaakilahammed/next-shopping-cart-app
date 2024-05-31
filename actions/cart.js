@@ -19,7 +19,7 @@ export const addToCart = async (accessToken, productId, colorId, quantity) => {
         if (response.ok) {
             return data;
         } else if (response.status === 401) {
-            await signOut({ callbackUrl: `/login` });
+            await signOut({ callbackUrl: `${getBaseUrl()}/login` });
         } else {
             throw new Error(data.message || 'Failed to add item to cart');
         }
@@ -46,7 +46,7 @@ export const getCart = async (accessToken) => {
         if (response.ok) {
             return data?.data;
         } else if (response.status === 401) {
-            await signOut({ callbackUrl: `/login` });
+            await signOut({ callbackUrl: `${getBaseUrl()}/login` });
         } else {
             throw new Error(data.message || 'Failed to fetch cart items');
         }
@@ -76,7 +76,7 @@ export const updateCartItemQuantity = async (
         if (response.ok) {
             return data;
         } else if (response.status === 401) {
-            await signOut({ callbackUrl: `/login` });
+            await signOut({ callbackUrl: `${getBaseUrl()}/login` });
         } else {
             throw new Error(
                 data.message || 'Failed to update cart item quantity'
@@ -103,7 +103,7 @@ export const removeFromCart = async (accessToken, productId, colorId) => {
         if (response.ok) {
             return data;
         } else if (response.status === 401) {
-            await signOut({ callbackUrl: `/login` });
+            await signOut({ callbackUrl: `${getBaseUrl()}/login` });
         } else {
             throw new Error(data.message || 'Failed to remove item from cart');
         }

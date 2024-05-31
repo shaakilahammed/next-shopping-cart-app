@@ -29,7 +29,7 @@ export const getMyProfile = async (accessToken) => {
         if (response.ok) {
             return replaceMongoIdInObject(data?.data);
         } else if (response.status === 401) {
-            await signOut({ callbackUrl: `/login` });
+            await signOut({ callbackUrl: `${getBaseUrl()}/login` });
         } else {
             throw new Error(data.message || 'Failed to update address');
         }
@@ -53,7 +53,7 @@ export const updateMyProfile = async (accessToken, toUpdate) => {
         if (response.ok) {
             return data;
         } else if (response.status === 401) {
-            await signOut({ callbackUrl: `/login` });
+            await signOut({ callbackUrl: `${getBaseUrl()}/login` });
         } else {
             throw new Error(data.message || 'Failed to update address');
         }

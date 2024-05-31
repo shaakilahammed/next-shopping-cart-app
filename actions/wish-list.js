@@ -19,7 +19,7 @@ export const addToWishlist = async (accessToken, productId, colorId) => {
         if (response.ok) {
             return data;
         } else if (response.status === 401) {
-            await signOut({ callbackUrl: `/login` });
+            await signOut({ callbackUrl: `${getBaseUrl()}/login` });
         } else {
             throw new Error(data.message || 'Failed to add item to wishlist');
         }
@@ -44,7 +44,7 @@ export const removeFromWishlist = async (accessToken, productId, colorId) => {
         if (response.ok) {
             return data;
         } else if (response.status === 401) {
-            await signOut({ callbackUrl: `/login` });
+            await signOut({ callbackUrl: `${getBaseUrl()}/login` });
         } else {
             throw new Error(
                 data.message || 'Failed to remove item from wishlist'
@@ -73,7 +73,7 @@ export const getWishlist = async (accessToken) => {
         if (response.ok) {
             return data?.data;
         } else if (response.status === 401) {
-            await signOut({ callbackUrl: `/login` });
+            await signOut({ callbackUrl: `${getBaseUrl()}/login` });
         } else {
             throw new Error(data.message || 'Failed to fetch wishlist');
         }

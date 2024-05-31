@@ -25,7 +25,7 @@ export const createAddress = async (type, addressData, accessToken) => {
             await updateMyProfile(accessToken, toUpdate);
             return data;
         } else if (response.status === 401) {
-            await signOut({ callbackUrl: `/login` });
+            await signOut({ callbackUrl: `${getBaseUrl()}/login` });
         } else {
             throw new Error(data.message || 'Failed to create address');
         }
@@ -48,7 +48,7 @@ export const updateAddress = async (id, addressData, accessToken) => {
         if (response.ok) {
             return data;
         } else if (response.status === 401) {
-            await signOut({ callbackUrl: `/login` });
+            await signOut({ callbackUrl: `${getBaseUrl()}/login` });
         } else {
             throw new Error(data.message || 'Failed to update address');
         }
