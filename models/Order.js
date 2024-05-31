@@ -16,7 +16,7 @@ const OrderSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Address',
         },
-        billinAddress: {
+        billingAddress: {
             default: null,
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Address',

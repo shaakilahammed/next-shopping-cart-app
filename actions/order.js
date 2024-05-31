@@ -1,5 +1,5 @@
+import { signOut } from '@/auth';
 import { getBaseUrl } from '@/utils/utils';
-import { signOut } from 'next-auth/react';
 
 export const createOrder = async (accessToken, orderDetails) => {
     try {

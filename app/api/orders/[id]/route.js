@@ -1,6 +1,5 @@
 import connectMongo from '@/dbConnect/connectMongo';
 import Order from '@/models/Order';
-import OrderItem from '@/models/OrderItem';
 import verifyToken from '@/utils/verifyToken';
 import { NextResponse } from 'next/server';
 
@@ -20,11 +19,9 @@ export const GET = async (req, { params }) => {
 
         const userId = tokenVerification.decoded.id;
 
-        const order = await Order.findOne({ _id: orderId, userId }).populate(
-            'orderItems',
-            null,
-            OrderItem
-        );
+        const order = await Order.findOne({ _id: orderId, userId })
+            .populate('orderItems')
+            .lean();
 
         if (!order) {
             return NextResponse.json(
