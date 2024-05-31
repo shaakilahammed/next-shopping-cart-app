@@ -10,6 +10,7 @@ const CheckoutPage = async ({ params: { locale } }) => {
     const dict = await getDictionary(locale);
     if (!session) {
         redirect(`/${locale}/login`);
+        return null;
     }
     return (
         <>

@@ -13,6 +13,7 @@ const AccountPage = async ({ params: { locale } }) => {
     const session = await auth();
     if (!session) {
         redirect(`/${locale}/login`);
+        return null;
     }
     const profile = await getMyProfile(session?.tokens?.accessToken);
     return (

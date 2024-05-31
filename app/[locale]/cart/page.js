@@ -7,6 +7,7 @@ const CartPage = async ({ params: { locale } }) => {
     const session = await auth();
     if (!session) {
         redirect(`/${locale}/login`);
+        return null;
     }
     return (
         <>

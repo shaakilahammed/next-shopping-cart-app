@@ -11,6 +11,7 @@ const ShippingAddressModal = async ({ params: { locale, type } }) => {
     const session = await auth();
     if (!session) {
         redirect(`/${locale}/login`);
+        return null;
     }
     const profile = await getMyProfile(session?.tokens?.accessToken);
     const decodedType = decodeURI(type);

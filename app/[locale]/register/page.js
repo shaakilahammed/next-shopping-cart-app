@@ -1,10 +1,16 @@
+import { auth } from '@/auth';
 import RegisterForm from '@/components/form/RegisterForm';
 import SocialLogin from '@/components/form/SocialLogin';
 import { getDictionary } from '@/lib/dictionaries';
+import { redirect } from 'next/navigation';
 
 const RegisterPage = async ({ params: { locale } }) => {
     const dict = await getDictionary(locale);
-
+    const session = await auth();
+    if (session) {
+        redirect(`/${locale}/`);
+        return null;
+    }
     return (
         <div className="contain py-16">
             <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
