@@ -17,27 +17,7 @@ const SocialShare = ({ productId }) => {
     console.log(process.env.NEXT_PUBLIC_FACEBOOK_APP_ID);
     return (
         <div className="flex gap-3 mt-4">
-            {/* <Link
-                href="#"
-                className="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center"
-            >
-                <FontAwesomeIcon icon={faFacebookF} />
-            </Link>
-            <Link
-                href="#"
-                className="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center"
-            >
-                <FontAwesomeIcon icon={faTwitter} />
-            </Link>
-            <Link
-                href="#"
-                className="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center"
-            >
-                <FontAwesomeIcon icon={faInstagram} />
-            </Link> */}
-            <FacebookShareButton
-                url={`${getLiveUrl()}/shop/${productId}?color=664f12f46da3668c1944a255&quantity=1`}
-            >
+            <FacebookShareButton url={`${getLiveUrl()}/shop/${productId}`}>
                 <FacebookIcon
                     className="hover:scale-110 transition-all"
                     size={24}
@@ -46,7 +26,7 @@ const SocialShare = ({ productId }) => {
             </FacebookShareButton>
 
             <FacebookMessengerShareButton
-                url={`${getLiveUrl()}/shop/${productId}?color=664f12f46da3668c1944a255&quantity=1`}
+                url={`${getLiveUrl()}/shop/${productId}`}
                 appId={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID}
             >
                 <FacebookMessengerIcon

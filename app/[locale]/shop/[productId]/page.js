@@ -5,6 +5,7 @@ import ProductDetails from '@/components/product/details/ProductDetails';
 import ProductInfo from '@/components/product/details/ProductInfo';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { getDictionary } from '@/lib/dictionaries';
+import { getLiveUrl } from '@/utils/utils';
 import { notFound } from 'next/navigation';
 
 export const generateMetadata = async ({ params: { productId } }) => {
@@ -13,12 +14,17 @@ export const generateMetadata = async ({ params: { productId } }) => {
         title: `LWSkart - ${product?.name}`,
         description: product?.description,
         openGraph: {
+            title: `LWSkart - ${product?.name}`,
+            description: product?.description,
+            type: 'website',
+            url: `${getLiveUrl()}/shop/${productId}`,
             images: [
                 {
-                    type: 'image/png',
+                    url: `${product?.images[0]}`,
                     width: 800,
-                    height: 600,
-                    url: product?.images[0],
+                    height: 400,
+                    alt: product?.name,
+                    type: 'image/png',
                 },
             ],
         },
