@@ -29,9 +29,10 @@ const OrderItemSchema = new mongoose.Schema(
             type: Number,
         },
 
-        color: {
-            default: null,
-            type: String,
+        colorId: {
+            required: true,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Color',
         },
         size: {
             default: null,

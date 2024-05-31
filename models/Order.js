@@ -2,6 +2,10 @@ import mongoose from 'mongoose';
 
 const OrderSchema = new mongoose.Schema(
     {
+        name: {
+            required: true,
+            type: String,
+        },
         userId: {
             required: true,
             type: mongoose.Schema.Types.ObjectId,
