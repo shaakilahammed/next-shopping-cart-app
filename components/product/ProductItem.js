@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { redirect } from 'next/navigation';
 import AddToCartButton from './AddToCartButton';
 import DeleteWishlistButton from './DeleteWishlistButton';
+import OutOfStock from './OutOfStock';
 
 const ProductItem = async ({ locale, product }) => {
     const dict = await getDictionary(locale);
@@ -50,14 +51,19 @@ const ProductItem = async ({ locale, product }) => {
             <div className="text-primary text-lg font-semibold">
                 ${product?.productId?.discountPrice}
             </div>
-            <AddToCartButton
-                cartText={dict.productDetails.addToCart}
-                locale={locale}
-                productId={product?.productId?._id}
-                colorId={product?.colorId?._id}
-                quantity={1}
-                fromWishList={true}
-            />
+            {product?.productId?.stock > 0 ? (
+                <AddToCartButton
+                    cartText={dict.productDetails.addToCart}
+                    locale={locale}
+                    productId={product?.productId?._id}
+                    colorId={product?.colorId?._id}
+                    quantity={1}
+                    fromWishList={true}
+                />
+            ) : (
+                <OutOfStock locale={locale} fromWishList={true} />
+            )}
+
             {/* <Link
                 href="#"
                 className="px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"

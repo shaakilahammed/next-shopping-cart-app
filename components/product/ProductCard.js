@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Ratings from '../ratings/Ratings';
 import AddToCartButton from './AddToCartButton';
 import AddWishlistButton from './AddWishlistButton';
+import OutOfStock from './OutOfStock';
 
 const ProductCard = ({ product, cartText, noRatingsText, locale }) => {
     return (
@@ -67,13 +68,17 @@ const ProductCard = ({ product, cartText, noRatingsText, locale }) => {
                     noRatingsText={noRatingsText}
                 />
             </div>
-            <AddToCartButton
-                cartText={cartText}
-                locale={locale}
-                productId={product?.id}
-                colorId={product?.colors[0]._id}
-                quantity={1}
-            />
+            {product?.stock > 0 ? (
+                <AddToCartButton
+                    cartText={cartText}
+                    locale={locale}
+                    productId={product?.id}
+                    colorId={product?.colors[0]._id}
+                    quantity={1}
+                />
+            ) : (
+                <OutOfStock locale={locale} />
+            )}
         </div>
     );
 };
