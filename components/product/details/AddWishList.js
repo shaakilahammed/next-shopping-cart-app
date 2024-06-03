@@ -11,7 +11,7 @@ const AddWishList = ({ text, locale, productId, color }) => {
     // console.log(session?.tokens?.accessToken);
     const handleClick = async () => {
         if (!session) {
-            router.push(`${locale}/login`);
+            router.push(`/${locale}/login`);
         }
         try {
             const response = await addToWishlist(
