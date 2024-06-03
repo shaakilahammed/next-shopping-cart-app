@@ -1,6 +1,5 @@
 import { formatReadableDate } from '@/utils/utils';
 import Link from 'next/link';
-import PDFButton from './PDFButton';
 
 const OrderItem = ({ order, locale }) => {
     return (
@@ -9,8 +8,8 @@ const OrderItem = ({ order, locale }) => {
             className="flex items-center justify-between border gap-6 p-4 border-gray-200 rounded hover:border-primary"
         >
             <div className="w-2/6">
-                <h2 className="text-gray-800 text-lg font-medium uppercase">
-                    {order?._id}
+                <h2 className="text-gray-800 text-lg font-medium">
+                    Order <span className="uppercase">#{order?._id}</span>
                 </h2>
 
                 <p className="text-gray-500 text-sm">
@@ -18,7 +17,7 @@ const OrderItem = ({ order, locale }) => {
                 </p>
             </div>
             <div className="w-2/6">
-                <h2 className="text-gray-800 text-lg font-medium uppercase">
+                <h2 className="text-gray-800 text-lg font-medium">
                     {order?.name}
                 </h2>
 
@@ -28,7 +27,6 @@ const OrderItem = ({ order, locale }) => {
             <div className="w-1/6 text-green-500 text-lg font-semibold text-right">
                 ${order?.total}
             </div>
-            <PDFButton />
         </Link>
     );
 };

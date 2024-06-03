@@ -2,7 +2,9 @@ import { auth } from '@/auth';
 import OrderDetails from '@/components/order/OrderDetails';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { redirect } from 'next/navigation';
-
+export const metadata = {
+    title: 'LWSkart - Orders',
+};
 const OrderDetailsPage = async ({ params: { locale, id } }) => {
     const session = await auth();
     if (!session) {

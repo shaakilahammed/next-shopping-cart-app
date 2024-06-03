@@ -1,6 +1,8 @@
 'use server';
 import { signOut } from '@/auth';
 import { getBaseUrl } from '@/utils/utils';
+import { Resend } from 'resend';
+import { getMyProfile } from './auth';
 
 export const createOrder = async (accessToken, orderDetails) => {
     try {
@@ -16,6 +18,7 @@ export const createOrder = async (accessToken, orderDetails) => {
         const data = await response.json();
 
         if (response.ok) {
+            await sendEmail(accessToken, data?.data._id);
             return data;
         } else if (response.status === 401) {
             await signOut({ callbackUrl: `${getBaseUrl()}/login` });
@@ -74,5 +77,23 @@ export const getOrderById = async (accessToken, orderId) => {
         }
     } catch (error) {
         throw new Error(error);
+    }
+};
+
+const sendEmail = async (accessToken, orderId) => {
+    try {
+        // console.log(eventId, user, process.env.RESEND_API_KEY);
+        const order = await getOrderById(accessToken, orderId);
+        const user = await getMyProfile(accessToken);
+        const resend = new Resend(process.env.RESEND_API_KEY);
+        const message = `Dear ${user?.name}, you have been successfully placed order, #${orderId}.`;
+        await resend.emails.send({
+            from: 'onboarding@resend.dev',
+            to: user?.email,
+            subject: `Order #${orderId} - Successfully placed!`,
+            react: <div className="text-xl">{message}</div>,
+        });
+    } catch (error) {
+        console.log(error);
     }
 };

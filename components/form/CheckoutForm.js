@@ -104,7 +104,7 @@ const CheckoutForm = ({ texts, address, cart, billingAddress, locale }) => {
 
                     e.target.reset();
                     setResponseError('');
-                    router.push(`/${locale}/orders`);
+                    router.push(`/${locale}/orders/${response?.data?._id}`);
                 } else {
                     setResponseError('Cart items is expired! please add again');
                 }
