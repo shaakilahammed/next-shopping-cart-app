@@ -1,9 +1,13 @@
 import { formatReadableDate } from '@/utils/utils';
+import Link from 'next/link';
 import PDFButton from './PDFButton';
 
-const OrderItem = ({ order }) => {
+const OrderItem = ({ order, locale }) => {
     return (
-        <div className="flex items-center justify-between border gap-6 p-4 border-gray-200 rounded">
+        <Link
+            href={`/${locale}/orders/${order?._id}`}
+            className="flex items-center justify-between border gap-6 p-4 border-gray-200 rounded hover:border-primary"
+        >
             <div className="w-2/6">
                 <h2 className="text-gray-800 text-lg font-medium uppercase">
                     {order?._id}
@@ -25,7 +29,7 @@ const OrderItem = ({ order }) => {
                 ${order?.total}
             </div>
             <PDFButton />
-        </div>
+        </Link>
     );
 };
 

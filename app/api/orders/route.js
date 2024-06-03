@@ -57,10 +57,10 @@ export const POST = async (req) => {
         });
 
         const savedOrder = await newOrder.save();
-
         // Create and save order items
         const orderItems = items.map((item) => ({
             name: item.productId.name,
+            orderId: savedOrder._id,
             userId: item.userId,
             productId: item.productId._id,
             quantity: item.quantity,

@@ -23,7 +23,7 @@ const ProductCard = ({ product, cartText, noRatingsText, locale }) => {
             justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
                 >
                     <Link
-                        href={`/${locale}/shop/${product?.id}?color=${product?.colors[0]._id}`}
+                        href={`/${locale}/shop/${product?.id}?color=${product?.colors[0]._id}&quantity=1`}
                         className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
                         title="view product"
                     >
