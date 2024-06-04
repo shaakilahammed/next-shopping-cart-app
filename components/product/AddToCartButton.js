@@ -16,7 +16,7 @@ const AddToCartButton = ({
     const { data: session } = useSession();
     const handleClick = async () => {
         if (!session) {
-            router.push(`${locale}/login`);
+            router.push(`/${locale}/login`);
         }
         try {
             const response = await addToCart(

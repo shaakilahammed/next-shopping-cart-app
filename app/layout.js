@@ -26,6 +26,7 @@ export default async function RootLayout({ children }) {
         <html lang="en">
             <body className={inter.className}>
                 <AuthProvider session={session}>{children}</AuthProvider>
+
                 <script
                     src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"
                     defer

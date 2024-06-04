@@ -2,6 +2,7 @@
 
 import { signOut } from '@/auth';
 import { getBaseUrl } from '@/utils/utils';
+import { revalidatePath } from 'next/cache';
 
 export const addToCart = async (accessToken, productId, colorId, quantity) => {
     try {
@@ -17,6 +18,10 @@ export const addToCart = async (accessToken, productId, colorId, quantity) => {
         const data = await response.json();
 
         if (response.ok) {
+            revalidatePath('/en');
+            revalidatePath('/en/shop');
+            revalidatePath('/bn');
+            revalidatePath('/bn/shop');
             return data;
         } else if (response.status === 401) {
             await signOut({ callbackUrl: `${getBaseUrl()}/login` });
@@ -74,6 +79,10 @@ export const updateCartItemQuantity = async (
         const data = await response.json();
 
         if (response.ok) {
+            revalidatePath('/en');
+            revalidatePath('/en/shop');
+            revalidatePath('/bn');
+            revalidatePath('/bn/shop');
             return data;
         } else if (response.status === 401) {
             await signOut({ callbackUrl: `${getBaseUrl()}/login` });
@@ -101,6 +110,10 @@ export const removeFromCart = async (accessToken, productId, colorId) => {
         const data = await response.json();
 
         if (response.ok) {
+            revalidatePath('/en');
+            revalidatePath('/en/shop');
+            revalidatePath('/bn');
+            revalidatePath('/bn/shop');
             return data;
         } else if (response.status === 401) {
             await signOut({ callbackUrl: `${getBaseUrl()}/login` });
@@ -124,6 +137,10 @@ export const removeExpiredCartItems = async () => {
         const data = await response.json();
 
         if (response.ok) {
+            revalidatePath('/en');
+            revalidatePath('/en/shop');
+            revalidatePath('/bn');
+            revalidatePath('/bn/shop');
             return data;
         } else {
             throw new Error(data.message || 'Failed to remove expired items');
