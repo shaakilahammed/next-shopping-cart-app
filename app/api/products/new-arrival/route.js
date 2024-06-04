@@ -6,7 +6,8 @@ export const GET = async () => {
     try {
         await connectMongo();
         const products = await Product.aggregate([
-            { $sample: { size: 4 } },
+            { $sort: { createdAt: -1 } },
+            { $limit: 4 },
             {
                 $lookup: {
                     from: 'colors',
