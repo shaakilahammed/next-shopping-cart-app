@@ -82,8 +82,6 @@ export const getOrderById = async (accessToken, orderId) => {
 
 const sendEmail = async (accessToken, orderId) => {
     try {
-        // console.log(eventId, user, process.env.RESEND_API_KEY);
-        const order = await getOrderById(accessToken, orderId);
         const user = await getMyProfile(accessToken);
         const resend = new Resend(process.env.RESEND_API_KEY);
         const message = `Dear ${user?.name}, you have been successfully placed order, #${orderId}.`;
