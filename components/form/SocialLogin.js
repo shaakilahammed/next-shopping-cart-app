@@ -1,14 +1,13 @@
 'use client';
-import { getBaseUrl } from '@/utils/utils';
-import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 
 const SocialLogin = ({ fromLogin = true, texts, locale }) => {
     const handleSocialLogin = async (provider) => {
         try {
-            await signIn(provider, {
-                callbackUrl: `${getBaseUrl()}/${locale}/`,
-            });
+            alert(`Login/Register with ${provider} Coming soon...`);
+            // await signIn(provider, {
+            //     callbackUrl: `${getBaseUrl()}/${locale}/`,
+            // });
         } catch (error) {
             console.log(error);
         }
