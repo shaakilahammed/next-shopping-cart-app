@@ -84,7 +84,7 @@ const sendEmail = async (accessToken, orderId) => {
     try {
         const user = await getMyProfile(accessToken);
         const resend = new Resend(process.env.RESEND_API_KEY);
-        const message = `Dear ${user?.name}, you have been successfully placed order, #${orderId}.`;
+        const message = `Dear ${user?.name}, you have been successfully placed order, #${orderId}. To check your order status, please visit https://next-shopping-cart-app.vercel.app/orders/${orderId}`;
         await resend.emails.send({
             from: 'onboarding@resend.dev',
             to: user?.email,
