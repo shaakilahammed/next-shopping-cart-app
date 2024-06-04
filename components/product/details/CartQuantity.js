@@ -5,7 +5,6 @@ import { useEffect, useMemo, useState } from 'react';
 
 const CartQuantity = ({ text, initialQuantity, initialProductStock }) => {
     const [quantity, setQuantity] = useState(initialQuantity);
-    const [stock, setStock] = useState(initialProductStock);
 
     const searchParams = useSearchParams();
     const pathname = usePathname();
@@ -17,14 +16,12 @@ const CartQuantity = ({ text, initialQuantity, initialProductStock }) => {
     const handleQuantity = async (action) => {
         const newQuantity = (prevQuantity) => {
             if (action === 'decrement' && prevQuantity > 1) {
-                setStock((prev) => prev + 1);
                 return prevQuantity - 1;
             } else if (
                 action === 'increment' &&
-                stock > 0 &&
+                initialProductStock > prevQuantity &&
                 prevQuantity < 5
             ) {
-                setStock((prev) => prev - 1);
                 return prevQuantity + 1;
             }
             return prevQuantity;
@@ -70,7 +67,7 @@ const CartQuantity = ({ text, initialQuantity, initialProductStock }) => {
                 <div
                     onClick={() => handleQuantity('increment')}
                     className={`h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none ${
-                        (quantity === 5 || stock === 0) &&
+                        (quantity === 5 || initialProductStock <= quantity) &&
                         'cursor-not-allowed bg-gray-200'
                     }`}
                 >

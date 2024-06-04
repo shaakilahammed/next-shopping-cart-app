@@ -141,6 +141,8 @@ export const removeExpiredCartItems = async () => {
             revalidatePath('/en/shop');
             revalidatePath('/bn');
             revalidatePath('/bn/shop');
+            revalidatePath('/bn/cart');
+            revalidatePath('/en/cart');
             return data;
         } else {
             throw new Error(data.message || 'Failed to remove expired items');
