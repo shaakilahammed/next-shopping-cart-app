@@ -82,6 +82,7 @@ const LoginForm = ({ texts, locale }) => {
                             error.email && 'border-primary'
                         }`}
                         placeholder="youremail.@domain.com"
+                        value="user@gmail.com"
                     />
                     {error.email && (
                         <p className="text-sm text-red-500">{error.email}</p>
@@ -102,6 +103,7 @@ const LoginForm = ({ texts, locale }) => {
                             error.password && 'border-primary'
                         }`}
                         placeholder="*******"
+                        value="12345678"
                     />
                     {error.password && (
                         <p className="text-sm text-red-500">{error.password}</p>
