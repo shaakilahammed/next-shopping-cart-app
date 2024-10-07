@@ -3,7 +3,7 @@ import CartProductList from '@/components/product/cart/CartProductList';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { redirect } from 'next/navigation';
 export const metadata = {
-    title: 'LWSkart - Cart',
+    title: 'NXTkart - Cart',
 };
 const CartPage = async ({ params: { locale } }) => {
     const session = await auth();

@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'LWSkart - Account',
+    title: 'NXTkart - Account',
 };
 const MovieLayout = ({ modal, children }) => {
     return (

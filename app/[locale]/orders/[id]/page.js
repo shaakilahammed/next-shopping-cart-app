@@ -4,7 +4,7 @@ import OrderDetails from '@/components/order/OrderDetails';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { notFound, redirect } from 'next/navigation';
 export const metadata = {
-    title: 'LWSkart - Orders',
+    title: 'NXTkart - Orders',
 };
 const OrderDetailsPage = async ({ params: { locale, id } }) => {
     const session = await auth();

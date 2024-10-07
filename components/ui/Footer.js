@@ -17,7 +17,7 @@ const Footer = async ({ locale }) => {
             <div className="container grid grid-cols-1 ">
                 <div className="col-span-1 space-y-4">
                     <Image
-                        src="/assets/images/logo.svg"
+                        src="/assets/images/logo.webp"
                         alt="logo"
                         className="w-40"
                         width={160}

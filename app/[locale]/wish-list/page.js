@@ -3,7 +3,7 @@ import WishProductList from '@/components/product/WishProductList';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { redirect } from 'next/navigation';
 export const metadata = {
-    title: 'LWSkart - Wishlist',
+    title: 'NXTkart - Wishlist',
 };
 const WishListPage = async ({ params: { locale } }) => {
     const session = await auth();

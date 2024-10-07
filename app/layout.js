@@ -11,7 +11,7 @@ config.autoAddCss = false;
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-    title: 'LWSkart - Home',
+    title: 'NXTkart - Home',
     description:
         'Unleash the magic of interior design with our captivating home décor collection. Elevate your space with irresistible accents that redefine chic and elegance. Make every corner a statement of your unique style.',
     openGraph: {

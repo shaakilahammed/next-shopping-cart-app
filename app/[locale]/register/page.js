@@ -4,7 +4,7 @@ import SocialLogin from '@/components/form/SocialLogin';
 import { getDictionary } from '@/lib/dictionaries';
 import { redirect } from 'next/navigation';
 export const metadata = {
-    title: 'LWSkart - Register',
+    title: 'NXTkart - Register',
 };
 const RegisterPage = async ({ params: { locale } }) => {
     const dict = await getDictionary(locale);

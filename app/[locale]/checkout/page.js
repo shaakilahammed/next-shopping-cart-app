@@ -6,7 +6,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import { getDictionary } from '@/lib/dictionaries';
 import { redirect } from 'next/navigation';
 export const metadata = {
-    title: 'LWSkart - Checkout',
+    title: 'NXTkart - Checkout',
 };
 const CheckoutPage = async ({ params: { locale } }) => {
     const dict = await getDictionary(locale);

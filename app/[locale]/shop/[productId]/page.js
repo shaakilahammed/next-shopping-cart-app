@@ -11,10 +11,10 @@ import { notFound } from 'next/navigation';
 export const generateMetadata = async ({ params: { productId } }) => {
     const product = await getProductbyId(productId);
     return {
-        title: `LWSkart - ${product?.name}`,
+        title: `NXTkart - ${product?.name}`,
         description: product?.description,
         openGraph: {
-            title: `LWSkart - ${product?.name}`,
+            title: `NXTkart - ${product?.name}`,
             description: product?.description,
             type: 'website',
             url: `${getLiveUrl()}/shop/${productId}`,

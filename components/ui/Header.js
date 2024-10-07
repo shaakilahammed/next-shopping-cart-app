@@ -17,11 +17,11 @@ const Header = async ({ locale }) => {
             <div className="container flex items-center justify-between">
                 <Link href={`/${locale}/`}>
                     <Image
-                        src="/assets/images/logo.svg"
+                        src="/assets/images/logo.webp"
                         alt="Logo"
-                        className="min-w-32"
-                        width={128}
-                        height={40}
+                        className="min-w-36"
+                        width={144}
+                        height={50}
                     />
                 </Link>
                 <Suspense>

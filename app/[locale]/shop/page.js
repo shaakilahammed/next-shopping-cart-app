@@ -6,7 +6,7 @@ import { refinedURI } from '@/utils/utils';
 import { Suspense } from 'react';
 import Loading from '../loading';
 export const metadata = {
-    title: 'LWSkart - Shop',
+    title: 'NXTkart - Shop',
 };
 const ShopPage = ({
     params: { locale },

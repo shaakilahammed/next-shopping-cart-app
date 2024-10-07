@@ -4,7 +4,7 @@ import SocialLogin from '@/components/form/SocialLogin';
 import { getDictionary } from '@/lib/dictionaries';
 import { redirect } from 'next/navigation';
 export const metadata = {
-    title: 'LWSkart - Login',
+    title: 'NXTkart - Login',
 };
 const LoginPage = async ({ params: { locale } }) => {
     const session = await auth();

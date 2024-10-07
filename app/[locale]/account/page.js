@@ -8,7 +8,7 @@ import { getDictionary } from '@/lib/dictionaries';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 export const metadata = {
-    title: 'LWSkart - Account',
+    title: 'NXTkart - Account',
 };
 const AccountPage = async ({ params: { locale } }) => {
     const dict = await getDictionary(locale);
